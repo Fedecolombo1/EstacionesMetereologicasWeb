@@ -1,0 +1,16 @@
+.estacion{
+    width: 400px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0.042);
+    border-radius: 10%;
+    margin: 10px;
+    align-content: center;
+}
+
+.title{
+
+}
+
+.subtitle{
+    font-size: 19px;
+}

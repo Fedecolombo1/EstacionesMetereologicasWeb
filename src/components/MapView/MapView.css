@@ -1,0 +1,21 @@
+.leaflet-container {
+    height: 91vh;
+    z-index: 0;
+  }
+  
+.leaflet-div-icon{
+    background-color: rgba(255, 255, 255, 0.805) ;
+    border: none;
+    border-radius: 10px;
+    padding: 5px !important;
+}
+
+.datosEstacion{
+    position: absolute;
+    width: 400px;
+    background-color: white;
+    height: 89vh;
+    right: 0;
+    transition:right 1s linear;
+    z-index: 10;    
+}
