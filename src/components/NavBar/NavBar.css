@@ -27,9 +27,15 @@
 }
 
 header{
+  position: fixed;
+  top: 0;
+  left: 0;
   margin: 0 !important;
-  height: 9vh;
-  background: #04B200;
+  z-index: 1000;
+  height: 8vh;
+  width: 100vw;
+  background: rgba(51, 204, 51, 0.786);
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
 }
 
 .activeNav{
@@ -45,40 +51,40 @@ header{
     font-family: 'Sen', sans-serif;
 }
 
-@media (min-width: 768px) {
-    .linksContainer{       
-      justify-content: flex-end;  
-    }
+.linksContainer{       
+  justify-content: flex-end;  
+}
 
-    .links{
-        margin-bottom: 0px;
-    }
+.links{
+    margin-bottom: 0px;
+}
 
-    .navLinks{
-        color: white;
-        font-size: 17px;
-        font-weight: 500;
-        text-decoration: none;
-        padding-top: 10px;
-        padding-bottom: 10px;
-        padding-left: 40px;
-        padding-right: 40px;
-        position: relative;
-        text-decoration: none;
-    }
+.navLinks{
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 40px;
+  padding-right: 40px;
+  position: relative;
+  text-decoration: none;
+}
 
-    .navLinks:hover{
-        color: white;
-    }
+.navLinks:hover{
+  color: white;
+}
 
+a {
+  text-decoration: none !important;
+}
+
+@media (min-width: 768px) { 
     .nombre{
         text-align: start !important;
         margin-left: 20px !important;
         text-decoration: none !important;
-    }
-
-    a {
-      text-decoration: none !important;
     }
 
     .links > a::before {

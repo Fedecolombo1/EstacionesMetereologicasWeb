@@ -1,5 +1,5 @@
 .leaflet-container {
-    height: 91vh;
+    height: 100vh;
     z-index: 0;
   }
   
@@ -8,6 +8,10 @@
     border: none;
     border-radius: 10px;
     padding: 5px !important;
+}
+
+.leaflet-control-zoom{
+    margin-top: 8.5vh !important;
 }
 
 .datosEstacion{

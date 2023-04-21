@@ -1,0 +1,32 @@
+.searchInput{
+    border-radius: 10px;
+    padding: 6px 15px;
+    position: fixed;
+    width: 30vw;
+    top: 10vh;
+    z-index: 1005;
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.resultados{
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    position: fixed;
+    width: 30vw;
+    top: 10vh;
+    margin-top: 34px;
+    z-index: 1005;
+    background: rgba(255, 255, 255, 0.743);
+    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+}
+
+.btnEstacion{
+    background: none;
+    border: none;
+    text-align: start;
+    padding: 2px 15px;
+    border-radius: 10px;
+}
+.btnEstacion:hover{
+    background: #dddddd78;
+}
