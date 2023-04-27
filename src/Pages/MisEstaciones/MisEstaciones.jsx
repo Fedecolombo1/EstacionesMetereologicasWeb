@@ -14,7 +14,14 @@ function MisEstaciones() {
 
   return (
     <Page>
-      <div className="contariner-fluid" style={{marginTop: '8vh'}}>
+      <div className="contariner-fluid">
+        <div className="header col-12 row align">
+          <Link to={'/'} className='col-1 link align'>
+            <FontAwesomeIcon className='flecha' icon={faArrowLeft} />
+          </Link>
+          <h1 className="titleEstaciones col-11">Estaciones</h1>
+        </div>
+        
         <div className="col-12 align row estacionesContainer" style={{margin: 0}}>
           {
             estaciones.map((estacion) => {

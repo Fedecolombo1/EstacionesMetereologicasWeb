@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import Home from './Pages/Home/Home'
 import MisEstaciones from './Pages/MisEstaciones/MisEstaciones'
+import Detalle from "./Pages/Detalle/Detalle";
 
 export default function Routes() {
   return (
@@ -18,6 +19,9 @@ export default function Routes() {
             <MisEstaciones />
           </Route>        
         </Switch>
+        <Route path="/estacion/:id">
+            <Detalle />
+        </Route>
     </Router>
   );
 }

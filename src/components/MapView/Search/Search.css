@@ -1,11 +1,14 @@
 .searchInput{
     border-radius: 10px;
-    padding: 6px 15px;
+    padding: 10px 15px;
     position: fixed;
     width: 30vw;
     top: 10vh;
     z-index: 1005;
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 65px 26px rgba(62, 48, 27, 0.01), 0px 36px 22px rgba(62, 48, 27, 0.05), 0px 16px 16px rgba(62, 48, 27, 0.09), 0px 4px 9px rgba(62, 48, 27, 0.1), 0px 0px 0px rgba(62, 48, 27, 0.05);
+    backdrop-filter: blur(3px);
 }
 
 .resultados{
@@ -16,8 +19,11 @@
     top: 10vh;
     margin-top: 34px;
     z-index: 1005;
-    background: rgba(255, 255, 255, 0.743);
-    box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+    background: rgba(255, 255, 255, 0.5);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-top: 0px;
+    box-shadow: 0px 65px 26px rgba(62, 48, 27, 0.01), 0px 36px 22px rgba(62, 48, 27, 0.05), 0px 16px 16px rgba(62, 48, 27, 0.09), 0px 4px 9px rgba(62, 48, 27, 0.1), 0px 0px 0px rgba(62, 48, 27, 0.05);
+    backdrop-filter: blur(3px);
 }
 
 .btnEstacion{
@@ -29,4 +35,13 @@
 }
 .btnEstacion:hover{
     background: #dddddd78;
+}
+
+@media (max-width: 768px) {
+    .searchInput{
+        width: 65vw;
+    }
+    .resultados{
+        width: 65vw;
+    }
 }

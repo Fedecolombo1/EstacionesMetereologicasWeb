@@ -12,6 +12,7 @@
 
 .leaflet-control-zoom{
     margin-top: 8.5vh !important;
+    z-index: 399;
 }
 
 .datosEstacion{
