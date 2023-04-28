@@ -10,12 +10,13 @@
     background: rgba(255, 255, 255, 0.5);
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 65px 26px rgba(62, 48, 27, 0.01), 0px 36px 22px rgba(62, 48, 27, 0.05), 0px 16px 16px rgba(62, 48, 27, 0.09), 0px 4px 9px rgba(62, 48, 27, 0.1), 0px 0px 0px rgba(62, 48, 27, 0.05);
-    backdrop-filter: blur(3px);
     color: black;
+    transition: all .2s ease-in-out;
 }
 
 .estacion:hover{
     color: black;
+    transform: scale(1.019);
 }
 
 .imagen{
@@ -39,4 +40,5 @@
 
 .subtitle{
     font-size: 19px;
+    margin-bottom: 40px;
 }
