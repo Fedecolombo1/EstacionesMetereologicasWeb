@@ -25,7 +25,7 @@ const CirculoData = ({ col, value, text }) => {
             // Can specify path transition in more detail, or remove it entirely
             // pathTransition: 'none',
         
-            // Colors
+            // Colors  test
             pathColor: `rgba(62, 152, 199)`,
             textColor: 'rgba(62, 152, 199)',
             trailColor: '#d6d6d6',
