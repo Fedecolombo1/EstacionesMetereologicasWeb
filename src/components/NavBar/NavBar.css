@@ -50,6 +50,7 @@ header{
     text-align: end;
     text-decoration: none !important;
     font-family: 'Sen', sans-serif;
+    padding-bottom: 5px;
 }
 
 .linksContainer{       
@@ -65,9 +66,9 @@ header{
   font-size: 18px;
   font-weight: 500;
   text-decoration: none;
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 10px;
-  padding-left: 40px;
+  padding-left: 20px;
   padding-right: 40px;
   position: relative;
   text-decoration: none;
