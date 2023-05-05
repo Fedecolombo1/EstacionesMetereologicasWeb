@@ -12,33 +12,61 @@
     box-shadow: 0px 65px 26px rgba(62, 48, 27, 0.01), 0px 36px 22px rgba(62, 48, 27, 0.05), 0px 16px 16px rgba(62, 48, 27, 0.09), 0px 4px 9px rgba(62, 48, 27, 0.1), 0px 0px 0px rgba(62, 48, 27, 0.05);
     color: black;
     transition: all .2s ease-in-out;
+
+    align-content: space-between;
 }
 
 .estacion:hover{
     color: black;
-    transform: scale(1.019);
-}
-
-.imagen{
-    width: 40px;
-    height: 40px;
-    padding: 0;
-    display: flex;
-    justify-content: start;
-}
-
-.imageContainer{
-    display: flex;
-    justify-content: start;
+    /* transform: scale(1.019); */
 }
 
 .title{
     margin-top: 10px;
     font-size: 28px;
     text-align: start;
+    padding: 0;
 }
 
 .subtitle{
     font-size: 19px;
     margin-bottom: 40px;
+}
+
+.btnCorazon{
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    color: #cccccc;
+}
+
+.btnCorazon:hover{
+    cursor: pointer;
+}
+
+.corazon{
+    background-color: "red" !important;
+    color: red;
+}
+
+.btnVerDetalles{
+    background: rgba(62, 152, 199);
+    color: white;
+    border-radius: 10px;
+    transition: all .1s ease-in-out;
+    padding: 6px;
+}
+
+.btnVerDetalles:hover{
+    color: white;
+    transform: scale(1.019);
+}
+
+.tituloFavContainer{
+    justify-content: space-between;
+}
+
+.tituloDato{
+    font-size: 16px;
+    margin-top: 12px;
 }

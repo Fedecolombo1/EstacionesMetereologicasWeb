@@ -5,7 +5,14 @@ import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const CirculoData = ({ col, value, text }) => {
-
+  // const [color, setColor] = useState("blue")
+  // useEffect(() => {
+  //   if(value > 28){
+  //     setColor("red")
+  //   }else{
+  //     setColor("blue")
+  //   }
+  // },[value])
   return (
     <div className={col}>
         <CircularProgressbar value={value} maxValue={100} text={`${value} ${text}`} strokeWidth={6}

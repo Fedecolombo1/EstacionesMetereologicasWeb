@@ -3,30 +3,51 @@ import './Estacion.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import CirculoData from '../CirculoData/CirculoData'
 import { useState } from 'react'
+import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-function Estacion({estacion}) {
+function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
 
   const [temperatura, setTemperatura] = useState(0)
-  const [pm5, setPm5] = useState(0)
-  const [pm25, setPm25] = useState(0)
+  const [fiabilidad, setFiabilidad] = useState(0)
 
   useEffect(() => {
     setTemperatura(27)
-    setPm5(82)
-    setPm25(42)
+    setFiabilidad(32)
   },[])
 
+  const favOnClick = (id) =>{
+    if(favorito){
+      removeFavorite(id)
+    }else{
+      addFavorite(id)
+    }
+    
+  }
   return (
-    <Link to={`/estacion/${estacion.id}`} className="col-11 col-md-3 row estacion align">
-        {/* <div className="col-12 imageContainer">
-          <img className='imagen'src={require('../../Images/iotIcon.png')}/>
-        </div> */}
-        <h1 className='title'>{estacion.name}</h1>
-        <h1 className='col-12 subtitle'>{estacion.lat}, {estacion.lng}</h1>
-        <CirculoData col={"col-4"} value={temperatura} text="c"/>
-        <CirculoData col={"col-4"} value={pm5} text="pm"/>
-        <CirculoData col={"col-4"} value={pm25} text="pm"/>
-    </Link>
+    <div className="col-11 col-md-3 row estacion align">       
+        <div className="col-12 row align tituloFavContainer">
+          <h1 className='title col-10'>{estacion.name}</h1>
+          <FontAwesomeIcon className={`${favorito === true ? "btnCorazon col-1 corazon" : "btnCorazon col-2"}`} icon={faHeart} onClick={() => favOnClick(estacion.id)} />  
+        </div>
+        
+        <div className="col-12 row" style={{justifyContent: "space-around"}}>
+          <div className='col-5 row'>          
+            <CirculoData col={"col-12"} value={temperatura} text="c"/>  
+            <h2 className="tituloDato align">Temperatura</h2>        
+          </div>
+
+          <div className='col-5 row'>          
+          <CirculoData col={"col-12"} value={fiabilidad} text="%"/>  
+            <h2 className="tituloDato align">Fiabilidad</h2>        
+          </div>      
+        </div>
+        
+
+        <Link to={`/estacion/${estacion.id}`} className="col-5 align btnVerDetalles">
+          Ver mas detalles
+        </Link>
+    </div>
   )
 }
 
