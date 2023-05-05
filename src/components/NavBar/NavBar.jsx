@@ -15,6 +15,9 @@ const NavBar = () => {
               <Link to="/misEstaciones" className="navLinks">
                   Mis Estaciones
               </Link>
+              <Link to="/AboutUs" className="navLinks">
+                  About Us
+              </Link>
             </h2>       
         </div>
       </header>

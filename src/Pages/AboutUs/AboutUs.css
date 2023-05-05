@@ -1,0 +1,12 @@
+.detailContainer{
+    margin: 0% 10%;
+    margin-top: 100px;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.titleAboutUs{
+    padding: 0;
+    font-size: 34px;
+    text-align: start;
+    margin-bottom: 20px;
+}

@@ -7,6 +7,7 @@ import {
 import Home from './Pages/Home/Home'
 import MisEstaciones from './Pages/MisEstaciones/MisEstaciones'
 import Detalle from "./Pages/Detalle/Detalle";
+import AboutUs from "./Pages/AboutUs/AboutUs";
 
 export default function Routes() {
   return (
@@ -17,6 +18,9 @@ export default function Routes() {
           </Route>        
           <Route exact path="/MisEstaciones">
             <MisEstaciones />
+          </Route>
+          <Route exact path="/AboutUs">
+            <AboutUs />
           </Route>        
         </Switch>
         <Route path="/estacion/:id">
