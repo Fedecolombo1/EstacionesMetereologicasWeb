@@ -1,21 +1,43 @@
 .detailContainer{
-    margin: 0% 10%;
-    margin-top: 130px;
+    width: 100%;
+    margin: 0px;
+    margin-top: 100px;
+    padding: 0%;
+}
+
+.datosEstacionContainer{
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 .titleEstacion{
     padding: 0;
     font-size: 34px;
-    text-align: start;
-    margin-bottom: 20px;
+    text-align: center; 
 }
 
-.datosEstacionContainer{
-    height: 70vh;
-    padding: 30px;
+.cardDetail{
+    padding: 15px 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
     border-radius: 10px;
-    background: rgba(255, 255, 255, 0.5);
+    background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
-    box-shadow: 0px 65px 26px rgba(62, 48, 27, 0.01), 0px 36px 22px rgba(62, 48, 27, 0.05), 0px 16px 16px rgba(62, 48, 27, 0.09), 0px 4px 9px rgba(62, 48, 27, 0.1), 0px 0px 0px rgba(62, 48, 27, 0.05);
-    backdrop-filter: blur(3px);
+    box-shadow: 0px 10px 15px -10px rgba(0,0,0,0.1);    
+}
+
+@media (min-width: 768px) {
+    .detailContainer{
+        padding: 0% 10%;
+    }
+    .datosEstacionContainer{
+        justify-content: space-between;
+    }
+    .titleEstacion{
+        text-align: start;
+        margin-bottom: 20px;
+    }
+    .spaceBeetween{
+        justify-content: space-between;
+    }
 }

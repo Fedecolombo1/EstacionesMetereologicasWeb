@@ -10,15 +10,17 @@ const NavBar = () => {
         <Link className="col-4 col-md-2" to="/">
           <h1 className="col-12 nombre">Respirar</h1>
         </Link>
-        <div className="col-8 col-md-10 row align linksContainer">
+        <div className="col-4 col-md-10 row align linksContainer desk">            
             <h2 className="col-6 col-md-2 align links">
-              <Link to="/misEstaciones" className="navLinks">
-                  Mis Estaciones
-              </Link>
               <Link to="/AboutUs" className="navLinks">
                   About Us
               </Link>
-            </h2>       
+            </h2>
+            <h2 className="col-6 col-md-2 align links">
+              <Link to="/misEstaciones" className="navLinks">
+                  Mis Estaciones
+              </Link>              
+            </h2>                              
         </div>
       </header>
     </>

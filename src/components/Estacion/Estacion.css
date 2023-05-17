@@ -38,10 +38,12 @@
     height: 18px;
     padding: 0;
     color: #cccccc;
+    transition: all .1s ease-in-out;
 }
 
 .btnCorazon:hover{
     cursor: pointer;
+    transform: scale(1.1);
 }
 
 .corazon{
@@ -50,7 +52,8 @@
 }
 
 .btnVerDetalles{
-    background: rgba(62, 152, 199);
+    background-color: rgba(0, 36, 195, 0.625);
+    /* background-color: #00af66; */
     color: white;
     border-radius: 10px;
     transition: all .1s ease-in-out;

@@ -5,7 +5,7 @@ import Page from '../../components/Page/Page'
 function AboutUs(){
     return(
         <Page>
-            <div className="detailContainer">
+            <div className="aboutUsContainer">
                 <h1 className="titleAboutUs">Sobre el Proyecto</h1>
                 <p>El proyecto RespirAR es una plataforma abierta que comprende el monitoreo de la calidad medioambiental 
                     a través de las distintas estaciones meteorológicas.

@@ -12,7 +12,7 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
   const [fiabilidad, setFiabilidad] = useState(0)
 
   useEffect(() => {
-    setTemperatura(27)
+    setTemperatura(estacion.temperature)
     setFiabilidad(32)
   },[])
 
@@ -33,7 +33,7 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
         
         <div className="col-12 row" style={{justifyContent: "space-around"}}>
           <div className='col-5 row'>          
-            <CirculoData col={"col-12"} value={temperatura} text="c"/>  
+            <CirculoData col={"col-12"} value={temperatura} text="°c"/>  
             <h2 className="tituloDato align">Temperatura</h2>        
           </div>
 

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import './EstacionMapa.css'
 import L from 'leaflet';
 import DatosEstacion from './DatosEstacion/DatosEstacion';
-import { Marker, useMapEvents } from 'react-leaflet';
+import { Marker, Popup, useMapEvents } from 'react-leaflet';
+import { Link } from 'react-router-dom/cjs/react-router-dom';
 
 const iconEstation = new L.Icon({
     iconUrl: require('../../../Images/iotIcon.png'),
@@ -22,14 +23,22 @@ function EstacionMapa({ estacion }) {
     }
     return (
         <>
-            <Marker 
-                position={{lat: estacion.lat, lng: estacion.lng}} 
+            <Marker position={{lat: estacion.lat, lng: estacion.lng}} 
                 icon={iconEstation} 
                 eventHandlers={{
                     click: click,
-                }}
-            />   
-            <DatosEstacion estacion={estacion} verDatos={mostrar} click={click}/>
+                }}>                
+                <Popup>
+                    <div className="row align">
+                        <p className='col-12 titulo'>{estacion.name}</p>
+                        <p className='col-12 temperatura'>Temperatura {estacion.temperature}°C</p>
+                        <Link to={`/estacion/${estacion.id}`} className="col-10 btnIrAlDetalle">
+                            Ver detalle
+                        </Link>
+                    </div>                    
+                </Popup>
+            </Marker> 
+            {/* <DatosEstacion estacion={estacion} verDatos={mostrar} click={click}/> */}
         </>
     )
 }

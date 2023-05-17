@@ -1,18 +1,18 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './CirculoData.css'
 
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const CirculoData = ({ col, value, text }) => {
-  // const [color, setColor] = useState("blue")
-  // useEffect(() => {
-  //   if(value > 28){
-  //     setColor("red")
-  //   }else{
-  //     setColor("blue")
-  //   }
-  // },[value])
+  const [color, setColor] = useState("#7692E4")
+  useEffect(() => {
+    if(value > 30 && value < 60){
+      setColor("#F99417")
+    }else if(value > 60){
+      setColor("#E67676")
+    }
+  },[value])
   return (
     <div className={col}>
         <CircularProgressbar value={value} maxValue={100} text={`${value} ${text}`} strokeWidth={6}
@@ -33,8 +33,8 @@ const CirculoData = ({ col, value, text }) => {
             // pathTransition: 'none',
         
             // Colors  test
-            pathColor: `rgba(62, 152, 199)`,
-            textColor: 'rgba(62, 152, 199)',
+            pathColor: color,
+            textColor: color,
             trailColor: '#d6d6d6',
             backgroundColor: '#3e98c7',
           })} />

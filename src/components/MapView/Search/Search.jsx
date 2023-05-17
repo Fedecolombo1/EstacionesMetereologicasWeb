@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React, { useState} from 'react'
 import './Search.css'
 import { useMapEvents } from 'react-leaflet';
 
@@ -8,7 +8,7 @@ function Search({focus, setFocus, estaciones}) {
     const map = useMapEvents({})
 
     const handleChange = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         setSearchInput(e.target.value); 
     };
 
@@ -38,11 +38,11 @@ function Search({focus, setFocus, estaciones}) {
                 { (searchInput.length > 0) ? 
                     estaciones.filter((estacion) => {
                     return estacion.name.match(searchInput)  
-                    }).slice(0, 5).map((estacion) => {
+                    }).map((estacion) => {
                     return  <button onClick={() => onClickBtn(estacion.lat, estacion.lng)} className='col-12 btnEstacion'>{estacion.name}</button>
                     })
                     :
-                    estaciones.slice(0, 5).map((estacion) => {
+                    estaciones.map((estacion) => {
                     return  <button onClick={() => onClickBtn(estacion.lat, estacion.lng)} className='col-12 btnEstacion'>{estacion.name}</button>
                     })
                 }
