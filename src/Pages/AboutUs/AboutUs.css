@@ -1,7 +1,12 @@
 .aboutUsContainer{
     margin: 0% 10%;
     margin-top: 100px;
-    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 40px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    margin-bottom: 50px;
 }
 
 .titleAboutUs{
@@ -10,3 +15,27 @@
     text-align: start;
     margin-bottom: 20px;
 }
+  
+  .titleAboutUs {
+    color: #009659;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .aboutUsContainer p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+  
+  .aboutUsContainer a {
+    color: #009659;
+    text-decoration: none;
+  }
+  
+  .aboutUsContainer a:hover {
+    text-decoration: underline;
+  }
+  
+  
