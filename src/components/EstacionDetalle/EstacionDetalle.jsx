@@ -16,7 +16,7 @@ function EstacionDetalle() {
     const { id } = useParams();
 
     useEffect(() => {
-        var estacionFiltrada = estaciones.filter((estacion) => estacion.id === id)
+        var estacionFiltrada = estaciones.filter((estacion) => estacion.id.toString() === id)
         
         setEstacion(estacionFiltrada[0])
     }, [estaciones, id]);
