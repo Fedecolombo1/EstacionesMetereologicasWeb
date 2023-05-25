@@ -14,14 +14,13 @@ function Search({focus, setFocus, estaciones}) {
 
     const handleClick = (e) => {
         e.preventDefault();
-        setFocus(true)
+        setFocus(true)       
     }
 
     const onClickBtn = (lat, lng) => {
         setFocus(false)
         map.flyTo([lat, lng], 14)  
     }
-
     return (
         <div onMouseLeave={() => setFocus(false)} className='align'>
             <input

@@ -24,7 +24,7 @@ const CirculoData = ({ col, value, text }) => {
             strokeLinecap: 'round',
             
             // Text size
-            textSize: '16px',
+            textSize: '18px',            
         
             // How long animation takes to go from one percentage to another, in seconds
             pathTransitionDuration: 1.8,

@@ -9,12 +9,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
 
   const [temperatura, setTemperatura] = useState(0)
-  const [fiabilidad, setFiabilidad] = useState(0)
+  const [porcentajePrecipitacion, setPorcentajePrecipitacion] = useState(0)
 
   useEffect(() => {
-    setTemperatura(estacion.temperature)
-    setFiabilidad(32)
-  },[])
+    setTemperatura(estacion.temperature);
+    setPorcentajePrecipitacion(estacion.porcentajePrecipitacion);
+  }, [estacion.temperature, estacion.porcentajePrecipitacion]);
 
   const favOnClick = (id) =>{
     if(favorito){
@@ -32,14 +32,14 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
         </div>
         
         <div className="col-12 row" style={{justifyContent: "space-around"}}>
-          <div className='col-5 row'>          
-            <CirculoData col={"col-12"} value={temperatura} text="°c"/>  
+          <div className='col-5 row align'>          
+            <CirculoData col={"col-12 col-lg-10"} value={temperatura} text="°c"/>  
             <h2 className="tituloDato align">Temperatura</h2>        
           </div>
 
-          <div className='col-5 row'>          
-          <CirculoData col={"col-12"} value={fiabilidad} text="%"/>  
-            <h2 className="tituloDato align">Fiabilidad</h2>        
+          <div className='col-5 row align'>          
+          <CirculoData col={"col-12 col-lg-10"} value={porcentajePrecipitacion} text="%"/>  
+            <h2 className="tituloDato align">Precipitacion</h2>        
           </div>      
         </div>
         

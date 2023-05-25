@@ -47,14 +47,14 @@ header{
     color: white !important;
     font-size: 32px;
     margin: 0;
-    text-align: end;
+    text-align: center;
     text-decoration: none !important;
     font-family: 'Sen', sans-serif;
     padding-bottom: 5px;
 }
 
 .linksContainer{       
-  justify-content: flex-end;  
+  justify-content: flex-end; 
 }
 
 .links{
@@ -90,7 +90,17 @@ a {
         text-decoration: none !important;
     }
 
-    .links > a::before {
+    .links{
+      color: #fff !important;
+      font-size: 18px;
+    }
+
+    .links:hover{
+      color: #fff !important;
+      font-size: 18px;
+    }
+
+    /* .links > a::before {
         content: "";
         position: absolute;
         width: 100%;
@@ -106,5 +116,5 @@ a {
     .links > a:hover::before {
         visibility: visible;
         transform: scaleX(1);
-      }
+      } */
 }  

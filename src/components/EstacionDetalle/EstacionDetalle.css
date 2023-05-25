@@ -11,9 +11,14 @@
 }
 
 .titleEstacion{
+    margin: 0px !important;
     padding: 0;
-    font-size: 34px;
+    font-size: 29px;
     text-align: center; 
+}
+
+.titleContainer{
+    margin-top: 30px;
 }
 
 .cardDetail{
@@ -24,6 +29,28 @@
     background: white;
     border: 1px solid rgba(0, 0, 0, 0.1);
     box-shadow: 0px 10px 15px -10px rgba(0,0,0,0.1);    
+}
+
+.flecha{
+    width: 24px;
+    height: 24px;
+    padding: 0 10px;
+}
+
+.btnExportarDatos{
+    background-color: rgba(0, 36, 195, 0.625);
+    /* background-color: #00af66; */
+    color: white;
+    border-radius: 10px;
+    transition: all .1s ease-in-out;
+    padding: 6px;
+    margin-top: 5px;
+}
+
+.btnExportarDatos:hover{
+    background-color: rgba(0, 36, 195, 0.625);
+    color: white;
+    transform: scale(1.019);
 }
 
 @media (min-width: 768px) {

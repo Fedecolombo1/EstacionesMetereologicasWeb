@@ -1,6 +1,6 @@
 .estacion{
     /* width: 400px; */
-    height: 400px;
+    height: 100%;
     background-color: rgba(0, 0, 0, 0.042);
     border-radius: 10%;
     margin: 10px;
@@ -23,6 +23,7 @@
 
 .title{
     margin-top: 10px;
+    margin-bottom: 40px;
     font-size: 28px;
     text-align: start;
     padding: 0;
@@ -58,6 +59,7 @@
     border-radius: 10px;
     transition: all .1s ease-in-out;
     padding: 6px;
+    margin-top: 40px;
 }
 
 .btnVerDetalles:hover{
