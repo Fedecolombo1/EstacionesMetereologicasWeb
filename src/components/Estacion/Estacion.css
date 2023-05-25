@@ -22,8 +22,6 @@
 }
 
 .title{
-    margin-top: 10px;
-    margin-bottom: 40px;
     font-size: 28px;
     text-align: start;
     padding: 0;
@@ -69,9 +67,17 @@
 
 .tituloFavContainer{
     justify-content: space-between;
+    margin-top: 10px;
+    margin-bottom: 40px;
 }
 
 .tituloDato{
     font-size: 16px;
     margin-top: 12px;
+}
+
+.estacionImagen{
+    width: 25px;
+    height: 25px;
+    padding: 0;
 }

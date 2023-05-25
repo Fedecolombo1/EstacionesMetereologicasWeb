@@ -7,6 +7,7 @@ import LineChart from './LineChart/LineChart';
 import CirculoData from '../CirculoData/CirculoData';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons';
+import imageUrl from "../../Images/iotIcon.png";
 
 function EstacionDetalle() {
     const [estacion, setEstacion] = useState(undefined);
@@ -47,7 +48,7 @@ function EstacionDetalle() {
                     <div className="col-lg-12 col-12 row titleContainer align" style={{justifyContent: "start"}}>
                         <Link to={'/misEstaciones'} className='col-1 link align'>
                             <FontAwesomeIcon className='flecha' icon={faArrowLeft} />
-                        </Link>
+                        </Link>                        
                         <h1 className='col-lg-10 col-10 titleEstacion'>Datos {estacion.name}</h1>
                     </div>
                     
@@ -115,7 +116,7 @@ function EstacionDetalle() {
                     </div>                    
                 </>
             :
-                <h1>Loading..</h1>
+                <h1>Cargando estacion..</h1>
             }
         </div>
     )
