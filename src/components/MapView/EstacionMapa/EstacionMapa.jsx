@@ -1,9 +1,10 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import './EstacionMapa.css'
 import L from 'leaflet';
 import DatosEstacion from './DatosEstacion/DatosEstacion';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
+import MapContext from '../../../Context/MapaContext';
 
 const iconEstation = new L.Icon({
     iconUrl: require('../../../Images/iotIcon.png'),
@@ -21,6 +22,13 @@ function EstacionMapa({ estacion }) {
         setMostrar(mostrar => !mostrar);   
         map.flyTo([estacion.lat, estacion.lng], 14)     
     }
+
+    const { mapCenter } = useContext(MapContext);
+
+    useEffect(() => {
+        map.flyTo(mapCenter, 12)
+    },[mapCenter])
+
     return (
         <>
             <Marker position={{lat: estacion.lat, lng: estacion.lng}} 

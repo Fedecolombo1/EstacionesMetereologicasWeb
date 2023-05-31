@@ -27,8 +27,6 @@ export const EstacionesProvider = ({children}) => {
         };
     
         const calcularPorcentajePrecipitacion = (precipitacion) => {
-            // Realiza el cálculo del porcentaje utilizando el valor de precipitación
-            // Puedes personalizar esta función según tus necesidades
             const porcentaje = (precipitacion / 10) * 100;
             return porcentaje;
           };

@@ -12,18 +12,8 @@
   display: none !important;
 }
 
-@media (min-width: 768px) {
-  html{
-      scroll-behavior: smooth !important;
-  }
-
-  .mobile{
-      display: none !important;
-  }
-
-  .desk{
-      display: flex !important;
-  }
+.navbar{
+  justify-content: start !important;
 }
 
 header{
@@ -83,38 +73,33 @@ a {
   text-decoration: none !important;
 }
 
-@media (min-width: 768px) { 
-    .nombre{
-        text-align: start !important;
-        margin-left: 20px !important;
-        text-decoration: none !important;
-    }
+@media (min-width: 768px) {
+  html{
+      scroll-behavior: smooth !important;
+  }
 
-    .links{
-      color: #fff !important;
-      font-size: 18px;
-    }
+  .mobile{
+      display: none !important;
+  }
 
-    .links:hover{
-      color: #fff !important;
-      font-size: 18px;
-    }
+  .desk{
+      display: flex !important;
+  }
 
-    /* .links > a::before {
-        content: "";
-        position: absolute;
-        width: 100%;
-        height: 2px;
-        bottom: 0;
-        left: 0;
-        background-color: white !important;
-        visibility: hidden;
-        transform: scaleX(0);
-        transition: all 0.3s ease-in-out 0s;
-      }
+  .nombre{
+    text-align: start !important;
+    margin-left: 20px !important;
+    text-decoration: none !important;
+}
 
-    .links > a:hover::before {
-        visibility: visible;
-        transform: scaleX(1);
-      } */
-}  
+.links{
+  color: #fff !important;
+  font-size: 18px;
+}
+
+.links:hover{
+  color: #fff !important;
+  font-size: 18px;
+}
+
+}

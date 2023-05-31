@@ -1,15 +1,25 @@
-import React, { useState} from 'react'
+import React, { useContext, useState} from 'react'
 import './Search.css'
-import { useMapEvents } from 'react-leaflet';
+import MapContext from '../../../Context/MapaContext';
 
 function Search({focus, setFocus, estaciones}) {
 
     const [searchInput, setSearchInput] = useState("");
-    const map = useMapEvents({})
+    const [estacionesFiltradas, setEstacionesFiltradas] = useState("");
 
-    const handleChange = (e) => {
-        // e.preventDefault();
-        setSearchInput(e.target.value); 
+    const { flyToLocation } = useContext(MapContext);
+
+    const handleChange = (value) => {
+        setSearchInput(value);
+        const estacionesFiltradas = estaciones.filter((estacion) => {      
+            return (
+                value &&
+                estacion &&
+                estacion.name &&
+                estacion.name.toLowerCase().includes(value)
+            )
+        }) 
+        setEstacionesFiltradas(estacionesFiltradas)
     };
 
     const handleClick = (e) => {
@@ -19,25 +29,25 @@ function Search({focus, setFocus, estaciones}) {
 
     const onClickBtn = (lat, lng) => {
         setFocus(false)
-        map.flyTo([lat, lng], 14)  
+        setSearchInput("")
+        flyToLocation(lat, lng)  
     }
+
     return (
         <div onMouseLeave={() => setFocus(false)} className='align'>
             <input
             type="text"
             placeholder="Busca una estacion"
-            onChange={handleChange}
-            onClick={handleClick}
             value={searchInput}
+            onChange={(e) => handleChange(e.target.value)}
+            onClick={handleClick}           
             className='searchInput' />
             {focus 
             ?
             <div className='resultados row'>
 
                 { (searchInput.length > 0) ? 
-                    estaciones.filter((estacion) => {
-                    return estacion.name.match(searchInput)  
-                    }).map((estacion) => {
+                    estacionesFiltradas.map((estacion) => {
                     return  <button onClick={() => onClickBtn(estacion.lat, estacion.lng)} className='col-12 btnEstacion'>{estacion.name}</button>
                     })
                     :
