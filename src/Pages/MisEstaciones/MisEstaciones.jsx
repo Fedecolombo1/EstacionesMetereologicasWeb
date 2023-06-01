@@ -10,7 +10,6 @@ import { EstacionesContext } from "../../Context/EstacionesContext";
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Toggle } from '../../components/Toggle/Toggle';
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
 
 function MisEstaciones() {
 
@@ -20,7 +19,6 @@ function MisEstaciones() {
 
   const [filtrarPorFavoritos, setFiltrarPorFavoritos] = useState(false)
 
-  // Función para agregar un elemento a la lista de favoritos
   const addFavorite = (item) => {
     if (!favorites.includes(item)) {
       setFavorites([...favorites, item]);

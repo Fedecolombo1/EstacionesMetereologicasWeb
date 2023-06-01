@@ -19,7 +19,7 @@ function EstacionMapa({ estacion }) {
 
     const click = () => {
         setMostrar(mostrar => !mostrar);   
-        map.flyTo([estacion.lat, estacion.lng], 14)     
+        map.flyTo([estacion.location.value[0], estacion.location.value[1]], 14)     
     }
 
     const { mapCenter } = useContext(MapContext);
@@ -27,18 +27,17 @@ function EstacionMapa({ estacion }) {
     useEffect(() => {
         map.flyTo(mapCenter, 12)
     },[mapCenter, map])
-
     return (
         <>
-            <Marker position={{lat: estacion.lat, lng: estacion.lng}} 
+            <Marker position={{lat: estacion.location.value[0], lng: estacion.location.value[1]}} 
                 icon={iconEstation} 
                 eventHandlers={{
                     click: click,
                 }}>                
                 <Popup>
                     <div className="row align">
-                        <p className='col-12 titulo'>{estacion.name}</p>
-                        <p className='col-12 temperatura'>Temperatura {estacion.temperature}°C</p>
+                        <p className='col-12 titulo'>{estacion.name.value}</p>
+                        <p className='col-12 temperatura'>Temperatura {estacion.temperature.value}°C</p>
                         <Link to={`/estacion/${estacion.id}`} className="col-10 btnIrAlDetalle">
                             Ver detalle
                         </Link>

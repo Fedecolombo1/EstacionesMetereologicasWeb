@@ -10,12 +10,12 @@ import imageUrl from "../../Images/iotIcon.png";
 function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
 
   const [temperatura, setTemperatura] = useState(0)
-  const [porcentajePrecipitacion, setPorcentajePrecipitacion] = useState(0)
+  const [precipitacion, setPrecipitacion] = useState(0)
 
   useEffect(() => {
-    setTemperatura(estacion.temperature);
-    setPorcentajePrecipitacion(estacion.porcentajePrecipitacion);
-  }, [estacion.temperature, estacion.porcentajePrecipitacion]);
+    setTemperatura(estacion.temperature.value);
+    setPrecipitacion(estacion.precipitation.value);
+  }, [estacion.temperature, estacion.precipitation]);
 
   const favOnClick = (id) =>{
     if(favorito){
@@ -28,7 +28,7 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
   return (
     <div className="col-11 col-md-3 row estacion align">       
         <div className="col-12 row align tituloFavContainer">          
-          <h1 className='title col-10'>{estacion.name}</h1>
+          <h1 className='title col-10'>{estacion.name.value}</h1>
           <div className="col-1 align">
             <img className="estacionImagen" src={imageUrl} alt="Estación" />
           </div>
@@ -42,7 +42,7 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
           </div>
 
           <div className='col-5 row align'>          
-          <CirculoData col={"col-12 col-lg-10"} value={porcentajePrecipitacion} text="%"/>  
+          <CirculoData col={"col-12 col-lg-10"} value={precipitacion} text="%"/>  
             <h2 className="tituloDato align">Precipitacion</h2>        
           </div>      
         </div>

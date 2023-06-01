@@ -18,7 +18,6 @@ function EstacionDetalle() {
 
     useEffect(() => {
         var estacionFiltrada = estaciones.filter((estacion) => estacion.id.toString() === id)
-        
         setEstacion(estacionFiltrada[0])
     }, [estaciones, id]);
 
@@ -39,7 +38,7 @@ function EstacionDetalle() {
             data: ['27','24','25','22','26','29',]
         }]
     });
-
+    
     return (
         <div className="detailContainer row align">
             {estacion 
@@ -49,65 +48,60 @@ function EstacionDetalle() {
                         <Link to={'/misEstaciones'} className='col-1 link align'>
                             <FontAwesomeIcon className='flecha' icon={faArrowLeft} />
                         </Link>                        
-                        <h1 className='col-lg-10 col-10 titleEstacion'>Datos {estacion.name}</h1>
+                        <h1 className='col-lg-10 col-10 titleEstacion'>Datos {estacion.name.value}</h1>
                     </div>
                     
                     <div className="row col-12 align datosEstacionContainer">
                         <div className="col-12 col-lg-6 row align spaceBeetween">
-                            <div className="col-12 col-lg-6 row align cardDetail">                            
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={estacion.temperature} text="º"/>                                         
-                                </div>
-                                <h4 className="col-6 align">Temperatura actual</h4> 
+                        <div className="col-12 col-lg-6 row align cardDetail">
+                            <div className='col-6 row'>
+                                <CirculoData col={"col-10"} value={estacion.temperature.value} text="º"/>
+                            </div>
+                            <h4 className="col-6 align">Temperatura actual</h4>
                             </div>
                             <div className="col-12 col-lg-6 row align cardDetail">
-                                <h4 className="col-6 align">Precipitacion</h4> 
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={estacion.porcentajePrecipitacion} text="%"/>                                         
-                                </div>
+                            <div className='col-6 row'>
+                                <CirculoData col={"col-10"} value={estacion.relativeHumidity.value} text="%"/>
                             </div>
-                            <div className="col-12 col-lg-6 row align cardDetail">                            
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={estacion.temperature} text="º"/>                                         
-                                </div>
-                                <h4 className="col-6 align">Temperatura actual</h4> 
+                            <h4 className="col-6 align">Humedad relativa actual</h4>
                             </div>
                             <div className="col-12 col-lg-6 row align cardDetail">
-                                <h4 className="col-6 align">Fiabilidad</h4> 
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={30} text="%"/>                                         
-                                </div>
+                            <div className='col-6 row'>
+                                <CirculoData col={"col-10"} value={estacion.reliability.value} text=""/>
                             </div>
-                            <div className="col-12 col-lg-6 row align cardDetail">                            
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={estacion.temperature} text="º"/>                                         
-                                </div>
-                                <h4 className="col-6 align">Temperatura actual</h4> 
+                            <h4 className="col-6 align">Fiabilidad</h4>
                             </div>
                             <div className="col-12 col-lg-6 row align cardDetail">
-                                <h4 className="col-6 align">Fiabilidad</h4> 
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={50} text="%"/>                                         
-                                </div>
+                            <div className='col-6 row'>
+                                <CirculoData col={"col-10"} value={estacion.pm1.value} text=""/>
                             </div>
-                            <div className="col-12 col-lg-6 row align cardDetail">                            
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={estacion.temperature} text="º"/>                                         
-                                </div>
-                                <h4 className="col-6 align">Temperatura actual</h4> 
+                            <h4 className="col-6 align">PM1</h4>
                             </div>
                             <div className="col-12 col-lg-6 row align cardDetail">
-                                <h4 className="col-6 align">Fiabilidad</h4> 
-                                <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={10} text="%"/>                                         
-                                </div>
+                            <div className='col-6 row'>
+                                <CirculoData col={"col-10"} value={estacion.pm10.value} text=""/>
+                            </div>
+                            <h4 className="col-6 align">PM10</h4>
+                            </div>
+                            <div className="col-12 col-lg-6 row align cardDetail">
+                            <div className='col-6 row'>
+                                <CirculoData col={"col-10"} value={estacion.pm25.value} text=""/>
+                            </div>
+                            <h4 className="col-6 align">PM2.5</h4>
+                            </div>
+                            <div className="col-12 col-lg-6 row align cardDetail">
+                            <div className='col-6 row'>
+                                <CirculoData col={"col-10"} value={estacion.precipitation.value} text=""/>
+                            </div>
+                            <h4 className="col-6 align">Precipitación</h4>
                             </div>
                         </div>                           
                         <div className='col-12 col-lg-5 align cardDetail row'>
                             <div className="col-12">
                                 <LineChart chartData={data}/>   
                             </div>      
-                            <p className='col-12'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum consequuntur, consequatur in suscipit voluptas eligendi repudiandae ab voluptatibus perferendis ad sit temporibus voluptates esse aliquid? architecto ipsum repudiandae non ea autem voluptates cumque quia porro temporibus quaerat adipisci! Dolore placeat quisquam tempora earum repellat.</p>    
+                            <p className='col-12'>
+                            El gráfico de temperaturas históricas muestra cómo han variado las temperaturas a lo largo del tiempo. Se utiliza para observar tendencias y cambios climáticos a largo plazo, representando la temperatura en el eje vertical y el tiempo en el eje horizontal. Este tipo de gráfico es útil para comprender el calentamiento global, identificar patrones climáticos y analizar datos históricos de temperatura de forma visual.</p>    
 
                             <button className="col-5 col-lg-4 align btnExportarDatos">
                             Exportar datos
