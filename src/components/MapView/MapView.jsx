@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import './MapView.css'
 import { MapContainer, TileLayer } from "react-leaflet";
 import EstacionMapa from './EstacionMapa/EstacionMapa';
@@ -6,8 +6,7 @@ import { EstacionesContext } from "../../Context/EstacionesContext";
 
 function MapView() {
 
-    const { estaciones } = useContext(EstacionesContext);
-    const [focus, setFocus] = useState(false);       
+    const { estaciones } = useContext(EstacionesContext);      
 
     return (
         <>

@@ -75,7 +75,7 @@ function EstacionDetalle() {
                             <div className="col-12 col-lg-6 row align cardDetail">
                                 <h4 className="col-6 align">Fiabilidad</h4> 
                                 <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={70} text="%"/>                                         
+                                    <CirculoData col={"col-10"} value={30} text="%"/>                                         
                                 </div>
                             </div>
                             <div className="col-12 col-lg-6 row align cardDetail">                            
@@ -87,7 +87,7 @@ function EstacionDetalle() {
                             <div className="col-12 col-lg-6 row align cardDetail">
                                 <h4 className="col-6 align">Fiabilidad</h4> 
                                 <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={70} text="%"/>                                         
+                                    <CirculoData col={"col-10"} value={50} text="%"/>                                         
                                 </div>
                             </div>
                             <div className="col-12 col-lg-6 row align cardDetail">                            
@@ -99,7 +99,7 @@ function EstacionDetalle() {
                             <div className="col-12 col-lg-6 row align cardDetail">
                                 <h4 className="col-6 align">Fiabilidad</h4> 
                                 <div className='col-6 row'>          
-                                    <CirculoData col={"col-10"} value={70} text="%"/>                                         
+                                    <CirculoData col={"col-10"} value={10} text="%"/>                                         
                                 </div>
                             </div>
                         </div>                           

@@ -73,6 +73,30 @@ a {
   text-decoration: none !important;
 }
 
+.logoCiudades{
+  background: white;
+  padding-top: 94px;
+  padding-bottom: 40px;
+}
+
+.linkNav{
+  text-align: start !important;
+}
+
+.icono{
+  color: #fff;
+  width: 20px;
+  height: 20px;
+}
+
+.iotIcono{
+  color: #fff;
+  width: 25px !important;
+  height: 25px !important;
+  padding: 0 !important;
+  margin: 0px 12px;
+}
+
 @media (min-width: 768px) {
   html{
       scroll-behavior: smooth !important;

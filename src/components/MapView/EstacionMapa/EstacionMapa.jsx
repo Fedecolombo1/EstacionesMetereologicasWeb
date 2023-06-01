@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import './EstacionMapa.css'
 import L from 'leaflet';
-import DatosEstacion from './DatosEstacion/DatosEstacion';
 import { Marker, Popup, useMapEvents } from 'react-leaflet';
 import { Link } from 'react-router-dom/cjs/react-router-dom';
 import MapContext from '../../../Context/MapaContext';
@@ -27,7 +26,7 @@ function EstacionMapa({ estacion }) {
 
     useEffect(() => {
         map.flyTo(mapCenter, 12)
-    },[mapCenter])
+    },[mapCenter, map])
 
     return (
         <>

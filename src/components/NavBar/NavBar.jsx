@@ -6,6 +6,9 @@ import Search from '../../components/MapView/Search/Search';
 import { EstacionesContext } from "../../Context/EstacionesContext";
 import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
+import ciudadesLogo from '../../Images/ciudades.png'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChartSimple, faHouse, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
 const NavBar = () => {
 
@@ -19,24 +22,26 @@ const NavBar = () => {
     <>
       <header className="row align col-12 desk">
         <Link className="col-4 col-md-2" to="/">
-          <h1 className="col-12 nombre">Respirar</h1>
+          <h1 className="col-12 nombre">RespirAR</h1>
         </Link>
         <div className="col-5 col-md-10 row align linksContainer desk">            
-            <h2 className="col-6 col-md-2 align links">
-              <Link to="/AboutUs" className="links">
-                  About Us
-              </Link>              
-            </h2>
-            <h2 className="col-6 col-md-2 align links">
-              <Link to="/misEstaciones" className="links">
+            <Link to="/AboutUs" className="col-xl-2 col-lg-4 col-md-4 links row align">
+                <FontAwesomeIcon icon={faUserGroup} className="col-1 icono"/>
+                <h2 className="col-6 links">
+                About Us
+                </h2>
+            </Link>    
+            <Link to="/misEstaciones" className="col-xl-2 col-lg-4 col-md-4 links row align">
+                <FontAwesomeIcon icon={faChartSimple} className="col-1 icono"/>
+                <h2 className="col-8 links">
                   Mis Estaciones
-              </Link>              
-            </h2>                              
+                </h2>
+            </Link>                               
           </div>
       </header>
 
-      <header className="col-12 align mobile">
-        <nav className="col-12 align navbar">
+      <header className="col-12 align mobile">        
+        <nav className="col-12 align navbar">          
           <nav role="navigation" className="col-4">
             <div id="menuToggle">
               <input type="checkbox" />
@@ -44,28 +49,32 @@ const NavBar = () => {
               <span></span>
               <span></span>
               <span></span>
-
-              <ul className='col-12 row' id="menu">
+              
+              <ul className='row align' id="menu">  
+                <img src={ciudadesLogo} alt="" className="col-12 logoCiudades"/>              
                 <Link
-                  to="/"
+                  to="/" className='col-11 row align' style={{marginTop: "40px"}}
                 >
-                  <li className='col-12'>Home</li>
+                  <FontAwesomeIcon icon={faHouse} className="col-1 icono"/>
+                  <li className="col-10 linkNav">Home</li>
                 </Link>
                 <Link
-                  to="/misEstaciones"
+                  to="/misEstaciones" className='col-11 row align'
                 >
-                  <li className='col-12'>Mis estaciones</li>
+                  <FontAwesomeIcon icon={faChartSimple} className="col-1 icono"/>
+                  <li className="col-10 linkNav">Mis estaciones</li>
                 </Link>
                 <Link
-                  to="/aboutus"
+                  to="/aboutus" className='col-11 row align'
                 >
-                  <li className='col-12'>About us</li>
+                  <FontAwesomeIcon icon={faUserGroup} className="col-1 icono"/>
+                  <li className="col-10 linkNav">About us</li>
                 </Link>
               </ul>
             </div>
           </nav>
           <Link to="/" className="col-4">
-            <h1 className="nombre">Respirar</h1>
+            <h1 className="nombre">RespirAR</h1>
           </Link>          
         </nav>        
       </header>
