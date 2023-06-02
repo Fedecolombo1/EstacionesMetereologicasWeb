@@ -42,7 +42,7 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
           </div>
 
           <div className='col-5 row align'>          
-          <CirculoData col={"col-12 col-lg-10"} value={precipitacion} text="%"/>  
+          <CirculoData col={"col-12 col-lg-10"} value={precipitacion} text="mm"/>  
             <h2 className="tituloDato align">Precipitacion</h2>        
           </div>      
         </div>
