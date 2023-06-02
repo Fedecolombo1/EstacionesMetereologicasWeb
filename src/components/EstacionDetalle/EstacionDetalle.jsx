@@ -50,19 +50,19 @@ function EstacionDetalle() {
     ],
   });
 
-  const setColor = (value) =>{
-    let color = "#7692E4"
-    if(value > 30 && value < 60){
-        color = "#F99417"
-    }else if(value > 60){
-        color = "#E67676"
+  const setColor = (value) => {
+    let color = "#7692E4";
+    if (value > 30 && value < 60) {
+      color = "#F99417";
+    } else if (value > 60) {
+      color = "#E67676";
     }
-    return color
-  }
+    return color;
+  };
 
   return (
     <div className="detailContainer row align">
-      {estacion ? (        
+      {estacion ? (
         <>
           <div
             className="col-lg-12 col-12 row titleContainer align"
@@ -77,82 +77,109 @@ function EstacionDetalle() {
           </div>
 
           <div className="row col-12 align datosEstacionContainer">
-            <div className="col-12 col-lg-6 row align spaceBeetween">
-              <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-6 row">
-                  <CirculoData
-                    col={"col-10"}
-                    value={estacion.temperature.value}
-                    text="º"
-                    color={setColor(estacion.temperature.value)}
-                  />
-                </div>
-                <h4 className="col-6 align">Temperatura actual</h4>
+            <h4 className="col-12 subtituloDatos">Datos actuales</h4>
+            <div className="col-12 col-lg-3 row align cardDetail">
+              <div className="col-6 row">
+                <CirculoData
+                  col={"col-10"}
+                  value={estacion.temperature.value}
+                  text="º"
+                  color={setColor(estacion.temperature.value)}
+                />
               </div>
-              <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-6 row">
-                  <CirculoData
-                    col={"col-10"}
-                    value={estacion.relativeHumidity.value}
-                    text="%"
-                    color={setColor(estacion.relativeHumidity.value)}
-                  />
-                </div>
-                <h4 className="col-6 align">Humedad relativa actual</h4>
-              </div>
-              <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-6 row">
-                  <CirculoData
-                    col={"col-10"}
-                    value={estacion.reliability.value}
-                    text=""
-                    color={setColor(estacion.reliability.value)}
-                  />
-                </div>
-                <h4 className="col-6 align">Fiabilidad</h4>
-              </div>
-              <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-6 row">
-                  <CirculoData
-                    col={"col-10"}
-                    value={estacion.pm1.value}
-                    text=""
-                    color={setColor(estacion.pm1.value)}
-                  />
-                </div>
-                <h4 className="col-6 align">PM1</h4>
-              </div>
-              <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-6 row">
-                  <CirculoData
-                    col={"col-10"}
-                    value={estacion.pm10.value}
-                    text=""
-                    color={setColor(estacion.pm10.value)}
-                  />
-                </div>
-                <h4 className="col-6 align">PM10</h4>
-              </div>
-              <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-6 row">
-                  <CirculoData
-                    col={"col-10"}
-                    value={estacion.pm25.value}
-                    text=""
-                    color={setColor(estacion.pm25.value)}
-                  />
-                </div>
-                <h4 className="col-6 align">PM2.5</h4>
-              </div>
-              <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-6 row align">
-                  <FontAwesomeIcon icon={faDroplet} className="col-1 iconosEstacion" style={{color: setColor(estacion.precipitation.value)}}/>
-                  <h4 className="col-5" style={{color: setColor(estacion.precipitation.value)}}>{estacion.precipitation.value}</h4>
-                </div>
-                <h4 className="col-6 align">Precipitación</h4>
-              </div>
+              <h4 className="col-6 align">Temperatura actual</h4>
             </div>
-            <div className="col-12 col-lg-5 align cardDetail row">
+            <div className="col-12 col-lg-3 row align cardDetail">
+              <div className="col-6 row">
+                <CirculoData
+                  col={"col-10"}
+                  value={estacion.relativeHumidity.value}
+                  text="%"
+                  color={setColor(estacion.relativeHumidity.value)}
+                />
+              </div>
+              <h4 className="col-6 align">Humedad relativa actual</h4>
+            </div>
+            <div className="col-12 col-lg-3 row align cardDetail">
+              <div className="col-6 row">
+                <CirculoData
+                  col={"col-10"}
+                  value={estacion.reliability.value}
+                  text=""
+                  color={setColor(estacion.reliability.value)}
+                />
+              </div>
+              <h4 className="col-6 align">Fiabilidad</h4>
+            </div>
+            <div className="col-12 col-lg-3 row align cardDetail">
+              <div className="col-6 row">
+                <CirculoData
+                  col={"col-10"}
+                  value={estacion.pm1.value}
+                  text=""
+                  color={setColor(estacion.pm1.value)}
+                />
+              </div>
+              <h4 className="col-6 align">PM1</h4>
+            </div>
+            <div className="col-12 col-lg-3 row align cardDetail">
+              <div className="col-6 row">
+                <CirculoData
+                  col={"col-10"}
+                  value={estacion.pm10.value}
+                  text=""
+                  color={setColor(estacion.pm10.value)}
+                />
+              </div>
+              <h4 className="col-6 align">PM10</h4>
+            </div>
+            <div className="col-12 col-lg-3 row align cardDetail">
+              <div className="col-6 row">
+                <CirculoData
+                  col={"col-10"}
+                  value={estacion.pm25.value}
+                  text=""
+                  color={setColor(estacion.pm25.value)}
+                />
+              </div>
+              <h4 className="col-6 align">PM2.5</h4>
+            </div>
+            <div className="col-12 col-lg-3 row align cardDetail">
+              <div className="col-6 row align">
+                <FontAwesomeIcon
+                  icon={faDroplet}
+                  className="col-1 iconosEstacion"
+                  style={{ color: setColor(estacion.precipitation.value) }}
+                />
+                <h4
+                  className="col-5"
+                  style={{ color: setColor(estacion.precipitation.value) }}
+                >
+                  {estacion.precipitation.value}
+                </h4>
+              </div>
+              <h4 className="col-6 align">Precipitación</h4>
+            </div>
+            <h4 className="col-12 subtituloDatos">Datos historicos</h4>
+            <div className="col-12 col-lg-6 align cardDetail row">
+              <div className="col-12">
+                <LineChart chartData={data} />
+              </div>
+              <p className="col-12">
+                El gráfico de temperaturas históricas muestra cómo han variado
+                las temperaturas a lo largo del tiempo. Se utiliza para observar
+                tendencias y cambios climáticos a largo plazo, representando la
+                temperatura en el eje vertical y el tiempo en el eje horizontal.
+                Este tipo de gráfico es útil para comprender el calentamiento
+                global, identificar patrones climáticos y analizar datos
+                históricos de temperatura de forma visual.
+              </p>
+
+              <button className="col-5 col-lg-4 align btnExportarDatos">
+                Exportar datos
+              </button>
+            </div>
+            <div className="col-12 col-lg-6 align cardDetail row">
               <div className="col-12">
                 <LineChart chartData={data} />
               </div>

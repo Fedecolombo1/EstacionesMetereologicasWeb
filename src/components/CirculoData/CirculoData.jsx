@@ -6,7 +6,7 @@ import 'react-circular-progressbar/dist/styles.css';
 
 const CirculoData = ({ col, value, text, color}) => {
   return (
-    <div className={col}>
+    <div className={col} style={{maxWidth: "120px"}}>
         <CircularProgressbar value={value} maxValue={100} text={`${value} ${text}`} strokeWidth={6}
         styles={buildStyles({
             // Rotation of path and trail, in number of turns (0-1)
@@ -28,7 +28,7 @@ const CirculoData = ({ col, value, text, color}) => {
             pathColor: color,
             textColor: color,
             trailColor: '#d6d6d6',
-            backgroundColor: '#3e98c7',
+            backgroundColor: '#3e98c7',            
           })} />
     </div>
   );
