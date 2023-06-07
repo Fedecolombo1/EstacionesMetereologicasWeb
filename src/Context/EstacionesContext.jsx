@@ -88,7 +88,7 @@ export const EstacionesProvider = ({children}) => {
               },
               temperature: {
                 type: "Float",
-                value: 18.5
+                value: 8.5
               },
               relativeHumidity: {
                 type: "Float",
@@ -132,7 +132,7 @@ export const EstacionesProvider = ({children}) => {
               },
               temperature: {
                 type: "Float",
-                value: 15.7
+                value: 30.7
               },
               relativeHumidity: {
                 type: "Float",

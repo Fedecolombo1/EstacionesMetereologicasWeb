@@ -7,7 +7,7 @@ import LineChart from "./LineChart/LineChart";
 import CirculoData from "../CirculoData/CirculoData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faDroplet } from "@fortawesome/free-solid-svg-icons";
-import imageUrl from "../../Images/iotIcon.png";
+import { setTemperatureIcon, setColorTemp } from "../../helpers";
 
 function EstacionDetalle() {
   const [estacion, setEstacion] = useState(undefined);
@@ -51,6 +51,7 @@ function EstacionDetalle() {
   });
 
   const setColor = (value) => {
+
     let color = "#7692E4";
     if (value > 30 && value < 60) {
       color = "#F99417";
@@ -80,12 +81,17 @@ function EstacionDetalle() {
             <h4 className="col-12 subtituloDatos">Datos actuales</h4>
             <div className="col-12 col-lg-3 row align cardDetail">
               <div className="col-6 row">
-                <CirculoData
-                  col={"col-10"}
-                  value={estacion.temperature.value}
-                  text="º"
-                  color={setColor(estacion.temperature.value)}
+              <FontAwesomeIcon
+                  icon={setTemperatureIcon(estacion.temperature.value)}
+                  className="col-1 iconosEstacion"
+                  style={{ color: setColorTemp(estacion.temperature.value)}}
                 />
+              <h4
+                  className="col-5"
+                  style={{ color: setColorTemp(estacion.temperature.value) }}
+                >
+                  {estacion.temperature.value}
+                </h4>
               </div>
               <h4 className="col-6 align">Temperatura actual</h4>
             </div>

@@ -1,21 +1,12 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import './Estacion.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
-import CirculoData from '../CirculoData/CirculoData'
-import { useState } from 'react'
-import { faHeart } from '@fortawesome/free-solid-svg-icons';
+import { faHeart, faDroplet } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import imageUrl from "../../Images/iotIcon.png";
+import { setColorTemp, setTemperatureIcon } from '../../helpers'
 
 function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
-
-  const [temperatura, setTemperatura] = useState(0)
-  const [precipitacion, setPrecipitacion] = useState(0)
-
-  useEffect(() => {
-    setTemperatura(estacion.temperature.value);
-    setPrecipitacion(estacion.precipitation.value);
-  }, [estacion.temperature, estacion.precipitation]);
 
   const favOnClick = (id) =>{
     if(favorito){
@@ -37,17 +28,35 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
         
         <div className="col-12 row" style={{justifyContent: "space-around"}}>
           <div className='col-5 row align'>          
-            <CirculoData col={"col-12 col-lg-10"} value={temperatura} text="°c"/>  
-            <h2 className="tituloDato align">Temperatura</h2>        
+          <FontAwesomeIcon
+                  icon={setTemperatureIcon(estacion.temperature.value)}
+                  className="col-1 iconosEstacion"
+                  style={{ color: setColorTemp(estacion.temperature.value)}}
+                />
+              <h4
+                  className="col-5"
+                  style={{ color: setColorTemp(estacion.temperature.value) }}
+                >
+                  {estacion.temperature.value}
+                </h4>
+              <h2 className="tituloDato align">Temperatura</h2>        
           </div>
 
-          <div className='col-5 row align'>          
-          <CirculoData col={"col-12 col-lg-10"} value={precipitacion} text="mm"/>  
-            <h2 className="tituloDato align">Precipitacion</h2>        
+          <div className='col-5 row align'>   
+          <FontAwesomeIcon
+                  icon={faDroplet}
+                  className="col-1 iconosEstacion"
+                  style={{ color: '#7692e4'}}
+                />
+              <h4
+                  className="col-5"
+                  style={{ color: '#7692e4' }}
+                >
+                  {estacion.precipitation.value}mm
+                </h4>
+              <h2 className="tituloDato align">Precipitacion</h2>
           </div>      
         </div>
-        
-
         <Link to={`/estacion/${estacion.id}`} className="col-5 align btnVerDetalles">
           Ver mas detalles
         </Link>
