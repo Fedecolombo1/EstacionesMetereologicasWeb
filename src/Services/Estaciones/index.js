@@ -14,4 +14,4 @@ const getFilteredHistoricalData = (id,attribute, minDate,maxDate) => {
 }
 
 
-export default {getEstaciones, getEstacionById}
+export default {getEstaciones, getEstacionById, getHistoricalData, getFilteredHistoricalData }
