@@ -3,11 +3,12 @@ import "./EstacionDetalle.css";
 import { useParams } from "react-router-dom/cjs/react-router-dom.min";
 import { Link } from "react-router-dom";
 import { EstacionesContext } from "../../Context/EstacionesContext";
-import LineChart from "./LineChart/LineChart";
 import CirculoData from "../CirculoData/CirculoData";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft, faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { setTemperatureIcon, setColorTemp } from "../../helpers";
+import VerticalBarChart from "./VerticalBarChart/VerticalBarChart";
+import DatosHistoricos from "./DatosHistoricos/DatosHistoricos";
 
 function EstacionDetalle() {
   const [estacion, setEstacion] = useState(undefined);
@@ -22,33 +23,6 @@ function EstacionDetalle() {
     );
     setEstacion(estacionFiltrada[0]);
   }, [estaciones, id]);
-
-  //Data dinamico
-  // const [data, setData] = useState({
-  //     labels: estaciones.map((data) => data.year),
-  //     datasets: [{
-  //         label: "Temperature",
-  //         data: estaciones.map((data) => data.temperature)
-  //     }]
-  // });
-
-  //Data estatica para testear chart
-  const [data, setData] = useState({
-    labels: [
-      "1/9/2000",
-      "10/9/2000",
-      "21/9/2000",
-      "23/9/2000",
-      "29/9/2000",
-      "30/9/2000",
-    ],
-    datasets: [
-      {
-        label: "Temperature",
-        data: ["27", "24", "25", "22", "26", "29"],
-      },
-    ],
-  });
 
   const setColor = (value) => {
 
@@ -79,130 +53,63 @@ function EstacionDetalle() {
 
           <div className="row col-12 align datosEstacionContainer">
             <h4 className="col-12 subtituloDatos">Datos actuales</h4>
-            <div className="col-12 col-lg-3 row align cardDetail">
-              <div className="col-6 row">
-              <FontAwesomeIcon
-                  icon={setTemperatureIcon(estacion.temperature.value)}
-                  className="col-1 iconosEstacion"
-                  style={{ color: setColorTemp(estacion.temperature.value)}}
-                />
-              <h4
-                  className="col-5"
-                  style={{ color: setColorTemp(estacion.temperature.value) }}
-                >
-                  {estacion.temperature.value}
-                </h4>
-              </div>
-              <h4 className="col-6 align">Temperatura actual</h4>
-            </div>
-            <div className="col-12 col-lg-3 row align cardDetail">
-              <div className="col-6 row">
-                <CirculoData
-                  col={"col-10"}
-                  value={estacion.relativeHumidity.value}
-                  text="%"
-                  color={setColor(estacion.relativeHumidity.value)}
-                />
-              </div>
-              <h4 className="col-6 align">Humedad relativa actual</h4>
-            </div>
-            <div className="col-12 col-lg-3 row align cardDetail">
-              <div className="col-6 row">
-                <CirculoData
-                  col={"col-10"}
-                  value={estacion.reliability.value}
-                  text=""
-                  color={setColor(estacion.reliability.value)}
-                />
-              </div>
-              <h4 className="col-6 align">Fiabilidad</h4>
-            </div>
-            <div className="col-12 col-lg-3 row align cardDetail">
-              <div className="col-6 row">
-                <CirculoData
-                  col={"col-10"}
-                  value={estacion.pm1.value}
-                  text=""
-                  color={setColor(estacion.pm1.value)}
-                />
-              </div>
-              <h4 className="col-6 align">PM1</h4>
-            </div>
-            <div className="col-12 col-lg-3 row align cardDetail">
-              <div className="col-6 row">
-                <CirculoData
-                  col={"col-10"}
-                  value={estacion.pm10.value}
-                  text=""
-                  color={setColor(estacion.pm10.value)}
-                />
-              </div>
-              <h4 className="col-6 align">PM10</h4>
-            </div>
-            <div className="col-12 col-lg-3 row align cardDetail">
-              <div className="col-6 row">
-                <CirculoData
-                  col={"col-10"}
-                  value={estacion.pm25.value}
-                  text=""
-                  color={setColor(estacion.pm25.value)}
-                />
-              </div>
-              <h4 className="col-6 align">PM2.5</h4>
-            </div>
-            <div className="col-12 col-lg-3 row align cardDetail">
-              <div className="col-6 row align">
+            <div className="col-12 col-lg-7 row align contenedorDeCardsActuales" >
+              <div className="col-12 col-lg-6 row align cardDetail">      
                 <FontAwesomeIcon
-                  icon={faDroplet}
-                  className="col-1 iconosEstacion"
-                  style={{ color: setColor(estacion.precipitation.value) }}
-                />
+                      icon={setTemperatureIcon(estacion.temperature.value)}
+                      className="col-2 iconosEstacion"
+                      style={{ color: setColorTemp(estacion.temperature.value)}}
+                    />          
                 <h4
-                  className="col-5"
-                  style={{ color: setColor(estacion.precipitation.value) }}
-                >
-                  {estacion.precipitation.value}
+                      className="col-2 datoText"
+                      style={{ color: setColorTemp(estacion.temperature.value) }}
+                    >                      
+                      {estacion.temperature.value}
                 </h4>
+                <h4 className="col-8 datoTitle">Temperatura actual</h4>
               </div>
-              <h4 className="col-6 align">Precipitación</h4>
-            </div>
-            <h4 className="col-12 subtituloDatos">Datos historicos</h4>
-            <div className="col-12 col-lg-6 align cardDetail row">
-              <div className="col-12">
-                <LineChart chartData={data} />
+              <div className="col-12 col-lg-6 row align cardDetail">
+                <div className="col-4 row">
+                  <CirculoData                    
+                    value={estacion.relativeHumidity.value}
+                    text="%"
+                    color={setColor(estacion.relativeHumidity.value)}
+                  />
+                </div>
+                <h4 className="col-8 datoTitle">Humedad relativa actual</h4>
               </div>
-              <p className="col-12">
-                El gráfico de temperaturas históricas muestra cómo han variado
-                las temperaturas a lo largo del tiempo. Se utiliza para observar
-                tendencias y cambios climáticos a largo plazo, representando la
-                temperatura en el eje vertical y el tiempo en el eje horizontal.
-                Este tipo de gráfico es útil para comprender el calentamiento
-                global, identificar patrones climáticos y analizar datos
-                históricos de temperatura de forma visual.
-              </p>
-
-              <button className="col-5 col-lg-4 align btnExportarDatos">
-                Exportar datos
-              </button>
-            </div>
-            <div className="col-12 col-lg-6 align cardDetail row">
-              <div className="col-12">
-                <LineChart chartData={data} />
+              <div className="col-12 col-lg-6 row align cardDetail">
+                <div className="col-4 row">
+                  <CirculoData
+                    value={estacion.reliability.value}
+                    text=""
+                    color={setColor(estacion.reliability.value)}
+                  />
+                </div>
+                <h4 className="col-8 datoTitle">Fiabilidad</h4>
+              </div>        
+              <div className="col-12 col-lg-6 row align cardDetail">
+                <div className="col-4 row align">
+                  <FontAwesomeIcon
+                    icon={faDroplet}
+                    className="col-1 iconosEstacion"
+                    style={{ color: setColor(estacion.precipitation.value) }}
+                  />
+                  <h4
+                    className="col-5"
+                    style={{ color: setColor(estacion.precipitation.value) }}
+                  >
+                    {estacion.precipitation.value}
+                  </h4>
+                </div>
+                <h4 className="col-8 datoTitle">Precipitación</h4>
               </div>
-              <p className="col-12">
-                El gráfico de temperaturas históricas muestra cómo han variado
-                las temperaturas a lo largo del tiempo. Se utiliza para observar
-                tendencias y cambios climáticos a largo plazo, representando la
-                temperatura en el eje vertical y el tiempo en el eje horizontal.
-                Este tipo de gráfico es útil para comprender el calentamiento
-                global, identificar patrones climáticos y analizar datos
-                históricos de temperatura de forma visual.
-              </p>
-
-              <button className="col-5 col-lg-4 align btnExportarDatos">
-                Exportar datos
-              </button>
             </div>
+            <div className="col-12 col-lg-5 row align cardDetail graficoPm">
+              <VerticalBarChart dataSet={[estacion.pm1.value, estacion.pm10.value, estacion.pm25.value]}/>
+              {/* <p>El gráfico muestra los niveles de partículas PM1, PM15 y PM20 en μg/m³, indicadores de la contaminación del aire. Los valores recomendados para una buena calidad del aire son: PM1: &lt;10 μg/m³ (promedio anual), PM15: &lt;15 μg/m³ (promedio anual) y PM20: &lt;20 μg/m³ (promedio anual). Límites diarios aceptables: PM1: hasta 25 μg/m³, PM15: hasta 35 μg/m³ y PM20: hasta 50 μg/m³. Observar y actuar si se superan los límites recomendados es importante para evaluar la calidad del aire.</p> */}
+            </div>
+            <DatosHistoricos estacion={estacion} setColor={setColor}/>
           </div>
         </>
       ) : (

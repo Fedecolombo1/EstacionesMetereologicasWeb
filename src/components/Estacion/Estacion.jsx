@@ -27,30 +27,30 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
         </div>
         
         <div className="col-12 row" style={{justifyContent: "space-around"}}>
-          <div className='col-5 row align'>          
-          <FontAwesomeIcon
+          <div className='col-6 row align datoActualContainer'>          
+            <FontAwesomeIcon
                   icon={setTemperatureIcon(estacion.temperature.value)}
-                  className="col-1 iconosEstacion"
+                  className="col-3 iconosEstacion"
                   style={{ color: setColorTemp(estacion.temperature.value)}}
                 />
               <h4
-                  className="col-5"
-                  style={{ color: setColorTemp(estacion.temperature.value) }}
+                  className="col-6"
+                  style={{ color: setColorTemp(estacion.temperature.value), margin: 0 }}
                 >
                   {estacion.temperature.value}
                 </h4>
               <h2 className="tituloDato align">Temperatura</h2>        
           </div>
 
-          <div className='col-5 row align'>   
-          <FontAwesomeIcon
+          <div className='col-6 row align datoActualContainer'>   
+            <FontAwesomeIcon
                   icon={faDroplet}
-                  className="col-1 iconosEstacion"
+                  className="col-3 iconosEstacion"
                   style={{ color: '#7692e4'}}
                 />
               <h4
-                  className="col-5"
-                  style={{ color: '#7692e4' }}
+                  className="col-6"
+                  style={{ color: '#7692e4', margin: 0 }}
                 >
                   {estacion.precipitation.value}mm
                 </h4>

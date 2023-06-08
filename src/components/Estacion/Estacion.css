@@ -24,7 +24,7 @@
 .title{
     font-size: 28px;
     text-align: start;
-    padding: 0;
+    padding: 0;    
 }
 
 .subtitle{
@@ -74,6 +74,7 @@
 .tituloDato{
     font-size: 16px;
     margin-top: 12px;
+    text-align: center;
 }
 
 .estacionImagen{
@@ -81,3 +82,4 @@
     height: 25px;
     padding: 0;
 }
+
