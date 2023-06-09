@@ -20,8 +20,7 @@ function DatosHistoricos({ estacion }) {
 
   //Data estatica para testear chart
   const [data, setData] = useState({
-    labels: [      
-    ],
+    labels: [],
     datasets: [
       {
         label: "Temperature"
@@ -88,8 +87,8 @@ const formatDate = (date) => {
   return `${day}/${month}/${year}`;
 };
 
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const [startDate, setStartDate] = useState(new Date().setDate(new Date().getDate() - 7));
+  const [endDate, setEndDate] = useState(new Date());
 
   const setFromDate = (value) => {    
     setStartDate(value)
