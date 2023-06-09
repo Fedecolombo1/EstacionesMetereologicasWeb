@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import ciudadesLogo from '../../Images/ciudades.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faHouse, faUserGroup } from "@fortawesome/free-solid-svg-icons";
+import logo from '../../Images/ciudades.png'
 
 const NavBar = () => {
 
@@ -21,8 +22,9 @@ const NavBar = () => {
   return (
     <>
       <header className="row align col-12 desk">
-        <Link className="col-4 col-md-2" to="/">
-          <h1 className="col-12 nombre">RespirAR</h1>
+        <Link className="col-4 col-md-2 row" to="/">
+          {/* <img src={logo} alt="" className="col-5" /> */}
+          <h1 className="col-6 nombre">RespirAR</h1>
         </Link>
         <div className="col-5 col-md-10 row align linksContainer desk">            
             <Link to="/AboutUs" className="col-xl-2 col-lg-4 col-md-4 links row align">

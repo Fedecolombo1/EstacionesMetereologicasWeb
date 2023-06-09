@@ -67,6 +67,12 @@
     padding: 6px;
     margin-top: 5px;
 }
+.csvLink{
+    color: white;
+}
+.csvLink:hover{
+    color: white;
+}
 
 .btnExportarDatos:hover{
     background-color: rgba(0, 36, 195, 0.625);
