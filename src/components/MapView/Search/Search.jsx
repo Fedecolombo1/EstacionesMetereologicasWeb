@@ -34,34 +34,37 @@ function Search({focus, setFocus, estaciones}) {
     }
 
     return (
-        <div onMouseLeave={() => setFocus(false)} className='align'>
-            <input
-            type="text"
-            placeholder="Busca una estacion"
-            value={searchInput}
-            onChange={(e) => handleChange(e.target.value)}
-            onClick={handleClick}           
-            className='searchInput' />
-            {focus 
-            ?
-            <div className='resultados row'>
+            estaciones ?
+                <div onMouseLeave={() => setFocus(false)} className='align'>
+                <input
+                type="text"
+                placeholder="Busca una estacion"
+                value={searchInput}
+                onChange={(e) => handleChange(e.target.value)}
+                onClick={handleClick}           
+                className='searchInput' />
+                {                
+                    focus 
+                    ?
+                    <div className='resultados row'>
 
-                { (searchInput.length > 0) ? 
-                    estacionesFiltradas.map((estacion) => {
-                    return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion'>{estacion.name.value}</button>
-                    })
+                        { (searchInput.length > 0) ? 
+                            estacionesFiltradas.map((estacion) => {
+                            return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion'>{estacion.name.value}</button>
+                            })
+                            :
+                            estaciones.map((estacion) => {
+                            return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion'>{estacion.name.value}</button>
+                            })
+                        }
+                    </div>
                     :
-                    estaciones.map((estacion) => {
-                    return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion'>{estacion.name.value}</button>
-                    })
+                    <></>                
                 }
             </div>
             :
             <></>
-            }
-            
-
-        </div>
+             
     )
 }
 

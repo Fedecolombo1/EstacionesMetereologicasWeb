@@ -61,21 +61,24 @@ function MisEstaciones() {
       
       <div className="col-12 align row estacionesContainer" style={{margin: 0}}>
         {
-          !filtrarPorFavoritos 
-          ?
-          estaciones.map((estacion) => {
-            // Verificar si la estación está en la lista de favoritos
-            const esFavorito = favorites.includes(estacion.id);
-            // Establecer el valor de la prop favorito
-            const favorito = esFavorito ? true : false;
-            return <Estacion addFavorite={addFavorite} removeFavorite={removeFavorite} estacion={estacion} favorito={favorito} />;
-          })
-          :          
-          estaciones.filter(estacion => favorites.includes(estacion.id)).map((estacion) => {
-            // Establecer el valor de la prop favorito
-            const favorito = true;
-            return <Estacion addFavorite={addFavorite} removeFavorite={removeFavorite} estacion={estacion} favorito={favorito} />;
-          })                 
+          estaciones ? 
+            !filtrarPorFavoritos 
+            ?
+            estaciones.map((estacion) => {
+              // Verificar si la estación está en la lista de favoritos
+              const esFavorito = favorites.includes(estacion.id);
+              // Establecer el valor de la prop favorito
+              const favorito = esFavorito ? true : false;
+              return <Estacion addFavorite={addFavorite} removeFavorite={removeFavorite} estacion={estacion} favorito={favorito} />;
+            })
+            :          
+            estaciones.filter(estacion => favorites.includes(estacion.id)).map((estacion) => {
+              // Establecer el valor de la prop favorito
+              const favorito = true;
+              return <Estacion addFavorite={addFavorite} removeFavorite={removeFavorite} estacion={estacion} favorito={favorito} />;
+            })      
+          :
+          <h4 className="col-9 align">No hay estaciones para mostrar</h4>           
         }        
       </div>
     </Page>
