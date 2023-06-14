@@ -34,11 +34,11 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
                   style={{ color: setColorTemp(estacion.temperature.value)}}
                 />
               <h4
-                  className="col-6"
+                  className="col-6 datoText"
                   style={{ color: setColorTemp(estacion.temperature.value), margin: 0 }}
-                >
-                  {estacion.temperature.value}
-                </h4>
+              >
+                {estacion.temperature.value} °C
+              </h4>
               <h2 className="tituloDato align">Temperatura</h2>        
           </div>
 
@@ -49,11 +49,11 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
                   style={{ color: '#7692e4'}}
                 />
               <h4
-                  className="col-6"
-                  style={{ color: '#7692e4', margin: 0 }}
-                >
-                  {estacion.precipitation.value}mm
-                </h4>
+                className="col-6 datoText"
+                style={{ color: '#7692e4', margin: 0 }}
+              >
+                {estacion.precipitation.value}mm
+              </h4>
               <h2 className="tituloDato align">Precipitacion</h2>
           </div>      
         </div>

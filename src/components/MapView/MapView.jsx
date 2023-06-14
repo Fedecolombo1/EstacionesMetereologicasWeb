@@ -16,9 +16,12 @@ function MapView() {
                         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                     />       
                     {
+                        estaciones ? 
                         estaciones.map((estacion) => {
                             return  <EstacionMapa estacion={estacion}/>
                         })
+                        :
+                        <></>
                     }             
             </MapContainer>
         </>        

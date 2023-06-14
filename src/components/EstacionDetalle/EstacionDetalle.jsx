@@ -9,20 +9,30 @@ import { faArrowLeft, faDroplet } from "@fortawesome/free-solid-svg-icons";
 import { setTemperatureIcon, setColorTemp } from "../../helpers";
 import VerticalBarChart from "./VerticalBarChart/VerticalBarChart";
 import DatosHistoricos from "./DatosHistoricos/DatosHistoricos";
+import { getEstacionById } from '../../Services/Estaciones/index.js'
 
 function EstacionDetalle() {
-  const [estacion, setEstacion] = useState(undefined);
+  const [estacion, setEstacion] = useState(null);
 
   const { estaciones } = useContext(EstacionesContext);
 
   const { id } = useParams();
 
   useEffect(() => {
-    var estacionFiltrada = estaciones.filter(
-      (estacion) => estacion.id.toString() === id
-    );
-    setEstacion(estacionFiltrada[0]);
-  }, [estaciones, id]);
+    getEstacionById(id)
+    .then(estacionData => {
+      setEstacion(estacionData);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+    
+    // //Comentar esto si se consume las estaciones del back
+    // var estacionFiltrada = estaciones.filter(
+    //   (estacion) => estacion.id.toString() === id
+    // );
+    // setEstacion(estacionFiltrada[0]);
+  }, [id]);
 
   const setColor = (value) => {
 
@@ -57,23 +67,23 @@ function EstacionDetalle() {
               <div className="col-12 col-lg-6 row align cardDetail">      
                 <FontAwesomeIcon
                       icon={setTemperatureIcon(estacion.temperature.value)}
-                      className="col-2 iconosEstacion"
+                      className="col-1 iconosEstacion"
                       style={{ color: setColorTemp(estacion.temperature.value)}}
                     />          
                 <h4
-                      className="col-2 datoText"
-                      style={{ color: setColorTemp(estacion.temperature.value) }}
-                    >                      
-                      {estacion.temperature.value}
+                  className="col-3 datoText"
+                  style={{ color: setColorTemp(estacion.temperature.value) }}
+                >                      
+                  {estacion.temperature.value} °C
                 </h4>
-                <h4 className="col-8 datoTitle">Temperatura actual</h4>
+                <h4 className="col-7 datoTitle">Temperatura actual</h4>
               </div>
               <div className="col-12 col-lg-6 row align cardDetail">
                 <div className="col-4 row">
                   <CirculoData                    
-                    value={estacion.relativeHumidity.value}
+                    value={estacion.relativeHumidity.value * 100}
                     text="%"
-                    color={setColor(estacion.relativeHumidity.value)}
+                    color={setColor(estacion.relativeHumidity.value * 100)}
                   />
                 </div>
                 <h4 className="col-8 datoTitle">Humedad relativa actual</h4>
@@ -81,28 +91,26 @@ function EstacionDetalle() {
               <div className="col-12 col-lg-6 row align cardDetail">
                 <div className="col-4 row">
                   <CirculoData
-                    value={estacion.reliability.value}
-                    text=""
-                    color={setColor(estacion.reliability.value)}
+                    value={estacion.reliability.value * 100}
+                    text="%"
+                    color={setColor(estacion.reliability.value * 100)}
                   />
                 </div>
                 <h4 className="col-8 datoTitle">Fiabilidad</h4>
               </div>        
               <div className="col-12 col-lg-6 row align cardDetail">
-                <div className="col-4 row align">
                   <FontAwesomeIcon
                     icon={faDroplet}
                     className="col-1 iconosEstacion"
                     style={{ color: setColor(estacion.precipitation.value) }}
                   />
                   <h4
-                    className="col-5"
+                    className="col-3 datoText"
                     style={{ color: setColor(estacion.precipitation.value) }}
                   >
-                    {estacion.precipitation.value}
+                    {estacion.precipitation.value} mm
                   </h4>
-                </div>
-                <h4 className="col-8 datoTitle">Precipitación</h4>
+                <h4 className="col-7 datoTitle">Precipitación</h4>
               </div>
             </div>
             <div className="col-12 col-lg-5 row align cardDetail graficoPm">

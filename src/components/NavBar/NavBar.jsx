@@ -9,7 +9,6 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 import ciudadesLogo from '../../Images/ciudades.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faHouse, faUserGroup } from "@fortawesome/free-solid-svg-icons";
-import logo from '../../Images/ciudades.png'
 
 const NavBar = () => {
 
@@ -17,7 +16,8 @@ const NavBar = () => {
 
   const [focus, setFocus] = useState(false);   
 
-  const locationPath = useLocation()
+  const locationPath = useLocation()  
+  
 
   return (
     <>

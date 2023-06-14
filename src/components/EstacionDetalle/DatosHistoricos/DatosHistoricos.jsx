@@ -12,8 +12,10 @@ import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import { useEffect } from "react";
-import exportToCSV from "../../../Services/Export";
 import ExportCsvButton from "./ExportCsvButton/ExportCsvButton";
+
+import { getFilteredHistoricalData } from '../../../Services/Estaciones/index.js';
+import { getHistoricalData } from '../../../Services/Estaciones/index.js';
 
 function DatosHistoricos({ estacion }) {
   const [graficoSeleccionado, setGraficoSeleccionado] = useState("Temperature");
@@ -28,64 +30,64 @@ function DatosHistoricos({ estacion }) {
     ],
   });
 
-  //Data dinamico
-  // const [data, setData] = useState({
-  //     labels: estaciones.map((data) => data.year),
-  //     datasets: [{
-  //         label: "Temperature",
-  //         data: estaciones.map((data) => data.temperature)
-  //     }]
-  // });
 
-  const seleccionarGraficoHistorico = (filtro) => {
-  const datosHistoricos = {
-    Temperature: [20, 26, 12, 23, 25, 5],
-    RelativeHumidity: [50, 60, 45, 55, 58, 5],
-    Reliability: [90, 85, 95, 92, 88, 5],
-    Precipitation: [0, 5, 2, 8, 1, 5],
-    pm1: [10, 12, 8, 11, 9, 5],
-    pm10: [20, 18, 22, 25, 19, 5],
-    pm25: [15, 17, 14, 16, 13, 5],
+  const seleccionarGraficoHistorico = async (filtro) => {
+    //Consumir del back
+    try {
+
+      const filteredData = await getHistoricalData(
+        estacion.id,
+        filtro,
+      );
+
+      const labels = filteredData.map((item) => item.recvTime);
+      console.log(filtro);
+      const dataValues = filteredData.map((item) => filtro == "Reliability" || filtro == "RelativeHumidity" ? parseFloat(item.attrValue * 100) : parseFloat(item.attrValue));
+
+      // filteredData = await getFilteredHistoricalData(
+      //   estacion.id,
+      //   filtro,
+      //   startDate,
+      //   endDate
+      // );
+      
+      setData({
+        labels: labels,
+        datasets: [{ label: filtro, data: dataValues }],
+      });
+  
+      setGraficoSeleccionado(filtro);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
-  const labels = generateDateLabels(startDate, endDate);
+  const generateDateLabels = (startDate, endDate) => {
+    const labels = [];
+    const currentDate = new Date(startDate);
 
-  if(filtro != null){
-    setData({
-        labels: labels,
-        datasets: [{ label: filtro, data: datosHistoricos[filtro] }],
-      });
-    setGraficoSeleccionado(filtro);
-  }else{
-    setData({
-        labels: labels,
-        datasets: [{ label: graficoSeleccionado, data: datosHistoricos[graficoSeleccionado] }],
-      });
-    setGraficoSeleccionado(graficoSeleccionado)
-  }  
-};
+    while (currentDate <= endDate) {
+      const formattedDate = formatDate(currentDate);
+      labels.push(formattedDate);
 
-const generateDateLabels = (startDate, endDate) => {
-  const labels = [];
-  const currentDate = new Date(startDate);
+      currentDate.setDate(currentDate.getDate() + 1);
+    }
 
-  while (currentDate <= endDate) {
-    const formattedDate = formatDate(currentDate);
-    labels.push(formattedDate);
+    return labels.map((date) => {
+      const formattedDate = new Date(date).toLocaleString("es-ES");
+      return formattedDate;
+    });
 
-    currentDate.setDate(currentDate.getDate() + 1);
-  }
+    return labels;
+  };
 
-  return labels;
-};
+  const formatDate = (date) => {
+    const day = date.getDate();
+    const month = date.getMonth() + 1;
+    const year = date.getFullYear();
 
-const formatDate = (date) => {
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-
-  return `${day}/${month}/${year}`;
-};
+    return `${day}/${month}/${year}`;
+  };
 
   const [startDate, setStartDate] = useState(new Date().setDate(new Date().getDate() - 7));
   const [endDate, setEndDate] = useState(new Date());
@@ -99,8 +101,13 @@ const formatDate = (date) => {
     seleccionarGraficoHistorico()
   }
 
+  const csvData = {
+    estacionId: estacion.id,
+    filter: graficoSeleccionado
+  };
+
   useEffect(() => {
-    seleccionarGraficoHistorico(graficoSeleccionado);
+    seleccionarGraficoHistorico(graficoSeleccionado);    
   }, [startDate, endDate]);
 
   return (
@@ -131,7 +138,7 @@ const formatDate = (date) => {
           }`}
           onClick={() => seleccionarGraficoHistorico("RelativeHumidity")}
         >
-          <div className="col-4 row">
+          <div className="col-4 row align">
             <FontAwesomeIcon icon={faDroplet} className="iconosEstacion" />
           </div>
           <h4 className="col-8 datoTitle">Humedad relativa</h4>
@@ -142,7 +149,7 @@ const formatDate = (date) => {
           }`}
           onClick={() => seleccionarGraficoHistorico("Reliability")}
         >
-          <div className="col-4 row">
+          <div className="col-4 row align">
             <FontAwesomeIcon icon={faPercent} className="iconosEstacion" />
           </div>
           <h4 className="col-8 datoTitle">Fiabilidad</h4>
@@ -230,7 +237,7 @@ const formatDate = (date) => {
             de temperatura de forma visual.
           </p>
 
-          <ExportCsvButton data={data}/>          
+          <ExportCsvButton data={csvData}/>          
         </div>
       </div>
     </>
