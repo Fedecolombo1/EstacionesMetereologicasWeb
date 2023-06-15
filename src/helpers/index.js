@@ -8,10 +8,10 @@ const setColorTemp = (value) => {
       case value < 10:
             color = COLD;
         break;
-        case value > 10 && value < 20:
+        case value > 10 && value <= 20:
             color = NEUTRAL;
         break;
-        case value > 20 && value < 30:
+        case value > 20 && value <= 30:
             color = WARM;
         break;
         case value > 30:
