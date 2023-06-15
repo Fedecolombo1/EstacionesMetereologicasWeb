@@ -3,12 +3,14 @@ import './AboutUs.css'
 import Page from '../../components/Page/Page'
 import fiwareLogo from "../../Images/FIWARE.webp"
 import ciudadesLogo from "../../Images/ciudades.png"
+import respirarLogo from '../../Images/RespirAR_Logo.jpeg'
 
 function AboutUs(){
     return(
         <Page>
             <div className="container-fluid" style={{marginTop: '8vh'}}>
                 <div className="aboutUsContainer row align">
+                    <img src={respirarLogo} className="col-12 col-lg-3"/> 
                     <h1 className="titleAboutUs col-12">Sobre el Proyecto</h1>
                     <p>El proyecto RespirAR es una plataforma abierta que comprende el monitoreo de la calidad medioambiental 
                         a través de las distintas estaciones meteorológicas.

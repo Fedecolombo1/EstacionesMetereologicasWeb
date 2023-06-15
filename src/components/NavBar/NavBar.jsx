@@ -6,8 +6,9 @@ import Search from '../../components/MapView/Search/Search';
 import { EstacionesContext } from "../../Context/EstacionesContext";
 import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import ciudades from '../../Images/ciudades.png'
+
 import ciudadesLogo from '../../Images/ciudadesLogo.png'
+import respirarLogo from '../../Images/RespirAR_Logo.jpeg'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faHouse, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
@@ -54,7 +55,9 @@ const NavBar = () => {
               <span></span>
               
               <ul className='row align' id="menu">  
-                <img src={ciudades} alt="" className="col-12 logoCiudades"/>              
+                <div className="col-12 align" style={{background: 'white'}}>
+                  <img src={respirarLogo} alt="" className="col-9 logoCiudades"/>       
+                </div>                       
                 <Link
                   to="/" className='col-11 row align' style={{marginTop: "40px"}}
                 >
