@@ -3,7 +3,7 @@ import './Estacion.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { faHeart, faDroplet } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import imageUrl from "../../Images/iotIcon.png";
+import imageUrl from "../../Images/iotIcon4.png";
 import { setColorTemp, setTemperatureIcon } from '../../helpers'
 
 function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
@@ -19,10 +19,11 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
   return (
     <div className="col-11 col-md-3 row estacion align">       
         <div className="col-12 row align tituloFavContainer">          
-          <h1 className='title col-10'>{estacion.name.value}</h1>
+          
           <div className="col-1 align">
             <img className="estacionImagen" src={imageUrl} alt="Estación" />
           </div>
+          <h1 className='title col-10'>{estacion.name.value}</h1>
           <FontAwesomeIcon className={`${favorito === true ? "btnCorazon col-1 corazon" : "btnCorazon col-2"}`} icon={faHeart} onClick={() => favOnClick(estacion.id)} />  
         </div>
         
@@ -52,7 +53,7 @@ function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
                 className="col-6 datoText"
                 style={{ color: '#7692e4', margin: 0 }}
               >
-                {estacion.precipitation.value}mm
+                {estacion.precipitation.value} mm
               </h4>
               <h2 className="tituloDato align">Precipitacion</h2>
           </div>      

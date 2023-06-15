@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import LineChart from "../LineChart/LineChart";
-import { setTemperatureIcon, setColorTemp } from "../../../helpers";
+import { setTemperatureIcon } from "../../../helpers";
 import {
   faDroplet,
   faPercent,
@@ -15,7 +15,6 @@ import { useEffect } from "react";
 import ExportCsvButton from "./ExportCsvButton/ExportCsvButton";
 
 import { getFilteredHistoricalData } from '../../../Services/Estaciones/index.js';
-import { getHistoricalData } from '../../../Services/Estaciones/index.js';
 
 function DatosHistoricos({ estacion }) {
   const [graficoSeleccionado, setGraficoSeleccionado] = useState("Temperature");
@@ -23,33 +22,22 @@ function DatosHistoricos({ estacion }) {
   //Data estatica para testear chart
   const [data, setData] = useState({
     labels: [],
-    datasets: [
-      {
-        label: "Temperature"
-      },
-    ],
+    datasets: [{},],
   });
 
 
   const seleccionarGraficoHistorico = async (filtro) => {
     //Consumir del back
     try {
-
-      const filteredData = await getHistoricalData(
+      const filteredData = await getFilteredHistoricalData(
         estacion.id,
         filtro,
+        startDate,
+        endDate
       );
 
-      const labels = filteredData.map((item) => item.recvTime);
-      console.log(filtro);
-      const dataValues = filteredData.map((item) => filtro == "Reliability" || filtro == "RelativeHumidity" ? parseFloat(item.attrValue * 100) : parseFloat(item.attrValue));
-
-      // filteredData = await getFilteredHistoricalData(
-      //   estacion.id,
-      //   filtro,
-      //   startDate,
-      //   endDate
-      // );
+      const labels = filteredData.map((item) => formatDate(new Date(item.recvTime)));      
+      const dataValues = filteredData.map((item) => filtro === "Reliability" || filtro === "RelativeHumidity" ? parseFloat(item.attrValue * 100) : parseFloat(item.attrValue));      
       
       setData({
         labels: labels,
@@ -62,25 +50,6 @@ function DatosHistoricos({ estacion }) {
     }
   };
 
-  const generateDateLabels = (startDate, endDate) => {
-    const labels = [];
-    const currentDate = new Date(startDate);
-
-    while (currentDate <= endDate) {
-      const formattedDate = formatDate(currentDate);
-      labels.push(formattedDate);
-
-      currentDate.setDate(currentDate.getDate() + 1);
-    }
-
-    return labels.map((date) => {
-      const formattedDate = new Date(date).toLocaleString("es-ES");
-      return formattedDate;
-    });
-
-    return labels;
-  };
-
   const formatDate = (date) => {
     const day = date.getDate();
     const month = date.getMonth() + 1;
@@ -89,7 +58,7 @@ function DatosHistoricos({ estacion }) {
     return `${day}/${month}/${year}`;
   };
 
-  const [startDate, setStartDate] = useState(new Date().setDate(new Date().getDate() - 7));
+  const [startDate, setStartDate] = useState(new Date(new Date().setDate(new Date().getDate() - 7)));
   const [endDate, setEndDate] = useState(new Date());
 
   const setFromDate = (value) => {    
@@ -107,12 +76,12 @@ function DatosHistoricos({ estacion }) {
   };
 
   useEffect(() => {
-    seleccionarGraficoHistorico(graficoSeleccionado);    
+    seleccionarGraficoHistorico(graficoSeleccionado);  
   }, [startDate, endDate]);
 
   return (
     <>
-      <h4 className="col-12 subtituloDatos">Datos historicos</h4>
+      <h4 className="col-12 subtituloDatos" style={{marginTop: "20px"}}>Datos historicos</h4>
       <h6 className="col-12">
         Seleccione un atributo para mostrar sus datos historicos
       </h6>
@@ -227,15 +196,6 @@ function DatosHistoricos({ estacion }) {
             />
           </div>
           <LineChart chartData={data} />
-          <p className="col-12">
-            El gráfico de temperaturas históricas muestra cómo han variado las
-            temperaturas a lo largo del tiempo. Se utiliza para observar
-            tendencias y cambios climáticos a largo plazo, representando la
-            temperatura en el eje vertical y el tiempo en el eje horizontal.
-            Este tipo de gráfico es útil para comprender el calentamiento
-            global, identificar patrones climáticos y analizar datos históricos
-            de temperatura de forma visual.
-          </p>
 
           <ExportCsvButton data={csvData}/>          
         </div>

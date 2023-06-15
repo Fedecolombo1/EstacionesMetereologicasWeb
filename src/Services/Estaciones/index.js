@@ -38,7 +38,7 @@ export const getEstaciones = () => {
   };
   
   export const getFilteredHistoricalData = (id, attribute, minDate, maxDate) => {
-    return fetch(`http://localhost:3004/getHistoricosById/?id=${id}&attr=${attribute}&minDate=${minDate}&maxDate=${maxDate}`)
+    return fetch(`http://localhost:3004/getHistoricosByIdFecha/?id=${id}&attr=${attribute}&minDate=${minDate}&maxDate=${maxDate}`)
       .then(res => res.json())
       .then(data => {
         return data;
@@ -47,6 +47,4 @@ export const getEstaciones = () => {
         console.log(err);
       });
   };
-  
-  export default { getEstaciones, getEstacionById, getHistoricalData, getFilteredHistoricalData };
   

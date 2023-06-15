@@ -6,7 +6,8 @@ import Search from '../../components/MapView/Search/Search';
 import { EstacionesContext } from "../../Context/EstacionesContext";
 import { useContext, useState } from "react";
 import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
-import ciudadesLogo from '../../Images/ciudades.png'
+import ciudades from '../../Images/ciudades.png'
+import ciudadesLogo from '../../Images/ciudadesLogo.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faHouse, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
@@ -23,8 +24,8 @@ const NavBar = () => {
     <>
       <header className="row align col-12 desk">
         <Link className="col-4 col-md-2 row" to="/">
-          {/* <img src={logo} alt="" className="col-5" /> */}
-          <h1 className="col-6 nombre">RespirAR</h1>
+        <img src={ciudadesLogo} alt="" className="col-4 col-xl-3" />            
+        <h1 className="col-7 col-xl-5 nombre align">RespirAR</h1>
         </Link>
         <div className="col-5 col-md-10 row align linksContainer desk">            
             <Link to="/AboutUs" className="col-xl-2 col-lg-4 col-md-4 links row align">
@@ -44,7 +45,7 @@ const NavBar = () => {
 
       <header className="col-12 align mobile">        
         <nav className="col-12 align navbar">          
-          <nav role="navigation" className="col-4">
+          <nav role="navigation" className="col-2">
             <div id="menuToggle">
               <input type="checkbox" />
 
@@ -53,7 +54,7 @@ const NavBar = () => {
               <span></span>
               
               <ul className='row align' id="menu">  
-                <img src={ciudadesLogo} alt="" className="col-12 logoCiudades"/>              
+                <img src={ciudades} alt="" className="col-12 logoCiudades"/>              
                 <Link
                   to="/" className='col-11 row align' style={{marginTop: "40px"}}
                 >
@@ -75,9 +76,10 @@ const NavBar = () => {
               </ul>
             </div>
           </nav>
-          <Link to="/" className="col-4">
-            <h1 className="nombre">RespirAR</h1>
-          </Link>          
+          <Link to="/" className="col-8 row align">
+            <img src={ciudadesLogo} alt="" className="col-3" />  
+            <h1 className="nombre col-5 align">RespirAR</h1>
+          </Link>        
         </nav>        
       </header>
       { locationPath.pathname === '/' 

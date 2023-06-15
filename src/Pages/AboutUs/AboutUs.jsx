@@ -7,7 +7,7 @@ import ciudadesLogo from "../../Images/ciudades.png"
 function AboutUs(){
     return(
         <Page>
-            <div className="container-fluid">
+            <div className="container-fluid" style={{marginTop: '8vh'}}>
                 <div className="aboutUsContainer row align">
                     <h1 className="titleAboutUs col-12">Sobre el Proyecto</h1>
                     <p>El proyecto RespirAR es una plataforma abierta que comprende el monitoreo de la calidad medioambiental 

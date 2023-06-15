@@ -18,7 +18,7 @@ function MapView() {
                     {
                         estaciones ? 
                         estaciones.map((estacion) => {
-                            return  <EstacionMapa estacion={estacion}/>
+                            return  <EstacionMapa estacion={estacion} key={estacion.id}/>
                         })
                         :
                         <></>

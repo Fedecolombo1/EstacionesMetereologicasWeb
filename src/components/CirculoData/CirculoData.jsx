@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './CirculoData.css'
 
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
 const CirculoData = ({ col, value, text, color}) => {

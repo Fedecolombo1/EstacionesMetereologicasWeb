@@ -6,9 +6,9 @@ import { Link } from 'react-router-dom/cjs/react-router-dom';
 import MapContext from '../../../Context/MapaContext';
 
 const iconEstation = new L.Icon({
-    iconUrl: require('../../../Images/iotIcon.png'),
-    iconRetinaUrl: require('../../../Images/iotIcon.png'),
-    iconSize: [45,45], 
+    iconUrl: require('../../../Images/iotIcon4.png'),
+    iconRetinaUrl: require('../../../Images/iotIcon4.png'),
+    iconSize: [45,55],     
     className: 'leaflet-div-icon'
 });
 
@@ -19,7 +19,8 @@ function EstacionMapa({ estacion }) {
 
     const click = () => {
         setMostrar(mostrar => !mostrar);   
-        map.flyTo([estacion.location.value[0], estacion.location.value[1]], 14)     
+        map.flyTo([estacion.location.value[0], estacion.location.value[1]], 13) 
+        console.log(mostrar);   
     }
 
     const { mapCenter } = useContext(MapContext);
@@ -37,14 +38,13 @@ function EstacionMapa({ estacion }) {
                 <Popup>
                     <div className="row align">
                         <p className='col-12 titulo'>{estacion.name.value}</p>
-                        <p className='col-12 temperatura'>Temperatura {estacion.temperature.value}°C</p>
+                        <p className='col-12 temperatura'>Temperatura {estacion.temperature.value}°C</p>                       
                         <Link to={`/estacion/${estacion.id}`} className="col-10 btnIrAlDetalle">
                             Ver detalle
                         </Link>
                     </div>                    
                 </Popup>
             </Marker> 
-            {/* <DatosEstacion estacion={estacion} verDatos={mostrar} click={click}/> */}
         </>
     )
 }

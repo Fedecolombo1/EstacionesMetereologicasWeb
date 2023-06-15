@@ -50,11 +50,11 @@ function Search({focus, setFocus, estaciones}) {
 
                         { (searchInput.length > 0) ? 
                             estacionesFiltradas.map((estacion) => {
-                            return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion'>{estacion.name.value}</button>
+                            return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion' key={estacion.id}>{estacion.name.value}</button>
                             })
                             :
                             estaciones.map((estacion) => {
-                            return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion'>{estacion.name.value}</button>
+                            return  <button onClick={() => onClickBtn(estacion.location.value[0], estacion.location.value[1])} className='col-12 btnEstacion' key={estacion.id}>{estacion.name.value}</button>
                             })
                         }
                     </div>
