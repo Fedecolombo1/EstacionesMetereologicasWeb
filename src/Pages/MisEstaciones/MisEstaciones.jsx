@@ -7,7 +7,7 @@ import { EstacionesContext } from "../../Context/EstacionesContext";
 import { useEffect } from 'react';
 import { useState } from 'react';
 import PageHeader from '../../components/PageHeader/PageHeader';
-import Zoom from 'react-reveal/Zoom';
+import Fade from 'react-reveal/Fade';
 
 function MisEstaciones() {
 
@@ -49,7 +49,7 @@ function MisEstaciones() {
     <Page>
       <PageHeader titulo={"Mis estaciones"} backTo={"/"} filtrarPorFavoritos={filtrarPorFavoritos} setFiltrarPorFavoritos={setFiltrarPorFavoritos}/>
       
-      <Zoom when={efecto}>
+      <Fade when={efecto}>
         <div className="col-12 align row estacionesContainer" style={{margin: 0}}>
             {
               estaciones ? 
@@ -71,7 +71,7 @@ function MisEstaciones() {
               <h4 className="col-9 align">No hay estaciones para mostrar</h4>           
             }        
         </div>    
-      </Zoom>
+      </Fade>
     </Page>
   )
 }

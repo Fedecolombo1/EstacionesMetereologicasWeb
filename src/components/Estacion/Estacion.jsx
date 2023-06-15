@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Estacion.css'
 import { Link } from 'react-router-dom/cjs/react-router-dom.min'
 import { faHeart, faDroplet } from '@fortawesome/free-solid-svg-icons';
@@ -9,15 +9,23 @@ import { setColorTemp, setTemperatureIcon } from '../../helpers'
 function Estacion({estacion, addFavorite, removeFavorite, favorito}) {
 
   const favOnClick = (id) =>{
+    handleButtonClick()
     if(favorito){
       removeFavorite(id)
     }else{
       addFavorite(id)
-    }
-    
+    }    
   }
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  const handleButtonClick = () => {
+    setIsAnimating(true);
+    setTimeout(() => {
+      setIsAnimating(false);
+    }, 1000);
+  };
   return (
-    <div className="col-11 col-md-3 row estacion align">       
+    <div className={`col-11 col-md-3 row estacion align ${isAnimating ? 'animate__heartBeat' : ''}`}>       
       <div className="col-12 row align tituloFavContainer">          
         
         <div className="col-1 align">
