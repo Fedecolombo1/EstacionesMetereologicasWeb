@@ -9,6 +9,7 @@ import { useLocation } from "react-router-dom/cjs/react-router-dom.min";
 
 import ciudadesLogo from '../../Images/ciudadesLogo.png'
 import respirarLogo from '../../Images/RespirAR_Logo.jpeg'
+import respirarLogoSinTexto from '../../Images/RespirAR_Logo_sinTexto.png'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChartSimple, faHouse, faUserGroup } from "@fortawesome/free-solid-svg-icons";
 
@@ -25,7 +26,7 @@ const NavBar = () => {
     <>
       <header className="row align col-12 desk">
         <Link className="col-4 col-md-2 row" to="/">
-        <img src={ciudadesLogo} alt="" className="col-4 col-xl-3" />            
+        <img src={ciudadesLogo} alt="" className="col-4 col-lg-4 col-xl-2" />            
         <h1 className="col-7 col-xl-5 nombre align">RespirAR</h1>
         </Link>
         <div className="col-5 col-md-10 row align linksContainer desk">            
@@ -80,8 +81,8 @@ const NavBar = () => {
             </div>
           </nav>
           <Link to="/" className="col-8 row align">
-            <img src={ciudadesLogo} alt="" className="col-3" />  
-            <h1 className="nombre col-5 align">RespirAR</h1>
+            <img src={ciudadesLogo} alt="" className="col-2" />  
+            <h1 className="nombre col-6 align">RespirAR</h1>
           </Link>        
         </nav>        
       </header>
