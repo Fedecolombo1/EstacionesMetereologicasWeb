@@ -29,13 +29,13 @@ const NavBar = () => {
         <h1 className="col-7 col-xl-5 nombre align">RespirAR</h1>
         </Link>
         <div className="col-5 col-md-10 row align linksContainer desk">            
-            <Link to="/AboutUs" className="col-xl-2 col-lg-4 col-md-4 links row align">
+            <Link to="/AboutUs" className="col-xl-2 col-lg-5 col-md-4 links row align">
                 <FontAwesomeIcon icon={faUserGroup} className="col-1 icono"/>
-                <h2 className="col-6 links">
-                About Us
+                <h2 className="col-8 links">
+                Sobre nosotros
                 </h2>
             </Link>    
-            <Link to="/misEstaciones" className="col-xl-2 col-lg-4 col-md-4 links row align">
+            <Link to="/misEstaciones" className="col-xl-2 col-lg-5 col-md-4 links row align">
                 <FontAwesomeIcon icon={faChartSimple} className="col-1 icono"/>
                 <h2 className="col-8 links">
                   Mis Estaciones
